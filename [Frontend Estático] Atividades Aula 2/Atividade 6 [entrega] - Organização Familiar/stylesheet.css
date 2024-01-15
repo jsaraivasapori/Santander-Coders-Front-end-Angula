@@ -1,0 +1,50 @@
+body{
+  background-color: rgb(247, 199, 136)
+}
+.cabeçalho{
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.lista{
+  font-style: italic;
+  
+}
+
+.titulo-lista{
+  text-align: center;
+}
+
+.titulo{
+ 
+  font-size: 18px;
+  font-weight: 700;
+  font-style: oblique;
+}
+#tabela{
+  display: flex;
+  justify-content: center;
+  border-collapse:separate;
+  text-align: center;
+  
+}
+
+#pai{
+  background-color:aquamarine;
+  width: 115px;
+  
+
+}
+
+#mae{
+  background-color: blueviolet;
+  width: 80px;
+}
+#filho{
+  background-color: cadetblue;
+  width: 80px;
+}
+#filho-novo{
+  background-color: cornflowerblue;
+  width: 80px;
+}

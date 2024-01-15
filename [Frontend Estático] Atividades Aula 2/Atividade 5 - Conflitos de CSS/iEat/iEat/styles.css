@@ -1,0 +1,81 @@
+body, div, p {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.cabecalho {
+  background-color: #E93429;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  
+}
+
+#logo{
+  transition: 2s;
+  cursor: pointer;
+}
+#logo:hover{
+  -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+}
+.descricao {
+  font-size: 12px;
+}
+
+.titulo-secao {
+  /*max-width: 1100px;*/
+  color: #000000;
+  margin: 0 auto;
+  padding: 20px;
+  padding-left: 180px;
+}
+
+.servico {
+  width: 25%;
+  background-color: #F5F5F5;
+  border: 1px solid #DDD;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  display: inline-block;
+  transition: 2s
+}s
+
+.imagem-servico {
+  max-width: 200px;
+  border-radius: 10px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.titulo-servico {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.descricao-servico {
+  font-size: 14px;
+}
+
+
+
+.rodape {
+  color: white;
+  background-color: #E93429;
+  text-align: center;
+  padding: 10px;
+  clear: both;
+}
+
+.direitos-autorais {
+  font-size: 12px;
+}
+
+
+
+.servico:hover{
+  -webkit-transform: scale(1.5);
+  transform: scale(1.25);
+}
+
