@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient( #ffac49, #fe4e03);
+  
+}
+
+ 
+  
+
+header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  background-color: #014f6e;
+  color: white;
+  font-weight: bold;
+  
+}
+
+section{
+  background-color: antiquewhite;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  height: 60vh;
+  border-radius:30px;
+  border-color: #faebd7;
+  width: 500px;
+  margin: auto;
+  margin-top: 10vh;
+}
+
+form div{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+  
+  
+}
+
+form, input,select, button{
+  
+  border-radius: 120px;
+  border-color:  rgb(165, 58, 58);
+  width: 260px;
+
+}
+
+form input:focus, form select:focus, button:focus{
+  background-color: rgb(243, 218, 148);
+}
+
+button{
+  transition: all 0.5s;
+  cursor: pointer;
+}
+button:hover{
+  -webkit-filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
+  filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
+}
+.sombreamento{
+  transition: all 0.5s;
+    cursor: pointer;
+}
+.sombreamento:hover{
+  -webkit-filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
+  filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
+}
+
+
+#form{
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+
+}
+#radio{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+ 
+}
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylesheet.css">
+  <title>ONG Ajude a Causa</title>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Página de Cadastro</h1>
+    </header>
+    <section>
+      <form id="form">
+        <div>
+            <label for="nome">Nome</label>
+            <input type="text" id="nome"  required>
+          </div>
+          <br>
+          <div>
+            <label for="idade">Idade</label>
+            <input type="number" id="idade" min="18" max="999" required >
+          </div>
+          <br>
+          <div>
+            <label for="email">E-mail</label>
+            <input type="email" required >
+        </div>
+          <br>
+          <div>
+            <label for="camiseta">Tamanho camiseta</label>
+            <select name="camiseta" id="camiseta" class="sombreamento">
+              <option>Selecione</option>
+              <option value="p">P</option>
+              <option value="m">M</option>
+              <option value="g">G</option>
+              <option value="gg">GG</option>
+              <option value="xg">XG</option>
+            </select>
+        </div>
+          <br>
+          <div id="radio">
+            <input type="radio" name="categoria" value="3RUN" class="sombreamento">
+            <label for="categoria"> Corrida 3 km</label>
+            <input type="radio" name="categoria" value="5RUN" class="sombreamento">
+            <label for="categoria"> Corrida 5 km</label>
+            <input type="radio" name="categoria" value="4WALK" class="sombreamento">
+            <label for="categoria"> Caminhada 4 km</label>
+            </select>
+          </div>
+          <br>
+          <div>
+            <label for="doacao">Doação</label>
+            <input type="number" min="0" step="0.5" required >
+          </div>
+          <button type="submit">Enviar</button>
+        </div>
+      </form>
+    </section>
+</main>
+</body>
+</html>
