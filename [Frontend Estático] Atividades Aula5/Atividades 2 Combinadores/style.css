@@ -1,0 +1,17 @@
+.destacado span{
+  color: rgb(0, 153, 255);
+  font-weight: bolder;
+}
+
+ul li{
+  color: blueviolet;
+}
+
+ul > li{
+  color: chocolate;
+}
+
+div > h2{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: larger;
+}

@@ -1,0 +1,15 @@
+P{
+  color: brown;
+}
+
+.destacado{
+  color: blue;
+}
+
+#titulo{
+  color: chartreuse;
+}
+
+a[target]{
+color: aquamarine;
+}
