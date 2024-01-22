@@ -8,66 +8,63 @@
 }
 
 main{
-  background-color: #e0e2ee;
+  background-color: #f2f0eb;
 }
+
+/*Header*/
 div[class="title"]{
   display: inline-block;
   width: 100%;
   height: 110px;
   margin: auto;
   text-align: center;
-  background-color:#8f8f90;
+  background-color:#8E2323;
 }
 h1{
   font-family: "Dancing Script", cursive, sans-serif;
   font-weight: bolder;
   font-style: normal;
-  color: #873eb7;
+  color: #fff;
   display: inline-block; 
   font-size: 80px;
   
 }
+/*Subtitles*/
+.subtitle{
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-weight: 500;
+  font-size: 30px;
+  color: black;
+}
+/*Navbar*/
+a{
+  color: #fff;
+  font-size: 22px;
+  text-decoration: none;
+}
+nav{
+  margin-left: auto;
+  margin-right:auto;
+  width: 100%;
+  text-align: center;
+  background-color: #856363;
+  
 
+}
+.navigation a{
+  text-decoration: none;
+  margin-left: 30px;
+  margin-top: 10px;
+}
+/*Cards*/
 img[class="star"]{
   display: inline-block;
   height: 80px;
   width: 100px;
   padding-top: 5px;
 
-}
-
-.navigation{
-  background-color: #d8b4e2;
-  margin-left: auto;
-  margin-right:auto;
-  width: 100%;
-  
-  text-align: center;
-}
-
-aside{
-  text-align: center;
-  padding: 20px;
-  
-  margin-left:auto;
-  margin-right: auto;
-  width: 50%;
-}
-  
-form>h2,p{
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-form div{
-  margin-top: 5px;
-}
-input, button{
-  border-radius: 5px;
-  
-  
-}
-input,button:focus{
-  border-color:rgb(222,170, 135); 
 }
 
 
@@ -111,18 +108,11 @@ figcaption{
   -webkit-transform: scale(1.2);
     transform: scale(1.05);
 }
+
+/*Table*/
 .price-content{
   display: inline-block;
 }
-
-.title{
-  text-align: center;
-  margin-bottom: 10px;
-  font-weight: 500;
-  font-size: 30px;
-  color: black;
-}
-
 
 
 .table{
@@ -131,6 +121,8 @@ figcaption{
   width: 60%;
   font-size: 1vw;
   border: none;
+  background-color: #b98766;
+  text-align: center;
   
 
 }
@@ -138,15 +130,26 @@ figcaption{
 .price-list{
   margin: 20px;
   padding-bottom: 20px;
-  border-radius: 20px;
-
-
 }
 
-tr{
-  background-color: #9467ad;
+/*Form*/
+form>h2,p{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+form div{
+  margin-top: 5px;
+}
+input, button{
+  border-radius: 5px;
+  
+  
+}
+input,button:focus{
+  border-color:rgb(222,170, 135); 
 }
 
+/*Coffe History*/
 .coffe-history{
 background-color: #b1aa9d;
 border-radius: 10px;
@@ -179,4 +182,29 @@ border-top-style: solid;
   margin-left: 40px;
   width: 270px;
   height: 270px;
+}
+
+/*Aside*/
+aside{
+  text-align: center;
+  padding: 20px;
+  
+  margin-left:auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+/*Footer*/
+
+.navigation-footer{
+  background-color:#8E2323 ;
+  margin-left: auto;
+  margin-right:auto;
+  width: 100%;
+  text-align: center;
+}
+
+.navigation-footer p{
+  color: #fff;
+  font-size: 12px;
 }
