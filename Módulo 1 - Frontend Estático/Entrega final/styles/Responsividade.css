@@ -1,0 +1,227 @@
+@media (max-width: 880px){
+  main{
+    padding: 2%;
+  }
+  .comida-chamativa{
+    padding: 0;
+  }
+
+  .comida-chamativa h2{
+    font-size: 2rem;
+  }
+
+  .comida-chamativa-conteudo{
+    display: inline-block;
+  }
+
+  .descriçao h3{
+   padding-top: 20px;
+   padding-bottom: 15px;
+   font-size: 18px;
+   width: 250px;
+   margin: auto;
+   text-align: center;
+  }
+  
+  .container-img-comida-chamativa {
+    width: 320px;
+    margin: auto;
+  }
+  .melhor-prato{
+    width: 320px;
+    height: 260px;
+    border-radius: 15px;
+  }
+
+.outros-itens{
+  margin-top: 2rem;
+}
+
+.containerSobreNos,
+.containerAmbiente {
+  margin: 2%;
+  margin-bottom: 10%;
+  padding: 1rem;
+}
+
+.texto-historia-restaurante,
+.texto-ambiente{
+  padding: 0;
+}
+
+.historia-restaurante{
+  display: inline-block;
+
+}
+
+.texto-historia-restaurante{
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+.inicio-historia{
+  display: inline-block;
+}
+
+.imagemFrente{
+  width: 300px;
+}
+
+.ambiente{
+  flex-wrap: wrap;
+}
+
+.imagemAmbiente{
+  width: 360px;
+  margin: 0;
+}
+
+.texto-ambiente{
+  text-align: center;
+}
+
+
+#footer-contato article {
+  color: white;
+  padding: 0px;
+}
+
+.form-area h2{
+  text-align: center;
+  font-size: 32px;
+}
+.form-area form {
+  width: 70%;
+}
+
+.contatos h2 {
+  font-size: 32px;
+}
+.links-contato {
+  flex-direction: column;
+}
+
+.linkedin {
+  border-right: none;
+}
+}
+
+
+@media (min-width: 990px){
+  .comida-chamativa-conteudo{
+    display: inline-block;
+  }
+
+  .melhor-prato{
+    width: 770px;
+  }
+
+  .texto-historia-restaurante{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .inicio-historia{
+    display: inline-block;
+  }
+
+  .ambiente{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .imagemAmbiente{
+    width: 300px;
+  }
+  
+  .texto-ambiente{
+    text-align: center;
+  }
+  
+  .card-item{
+    width: 22rem;
+    font-size: 1.3rem;
+  }
+
+  .card-title{
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1300px){
+
+  .melhor-prato{
+    margin-left: 8rem;
+  }
+
+  .card-item{
+    width: 26rem;
+    font-size: 1.5rem;
+  }
+
+  .card-title{
+    font-size: 2rem;
+  }
+
+  .btn.btn-outline-danger{
+    font-size: 1.3rem;
+  }
+}
+
+
+
+@media (min-width: 1600px){
+
+  .descricao p{
+    font-size: 1.5rem;
+  }
+
+  .melhor-prato{
+    width: 900px;
+    margin-left: 12rem;
+  }
+
+  .comida-chamativa h2,
+  .outros-itens h2{
+    font-size: 5rem;
+  }
+
+  .descricao h3{
+    font-size: 3rem;
+  }
+
+  .descricao p{
+    font-size: 2rem;
+  }
+
+  .containerSobreNos h3{
+    font-size: 3rem;
+  }
+
+  .inicio-historia-texto p{
+    font-size: 2rem;
+  }
+
+  .containerAmbiente h3{
+    font-size: 3rem;
+  }
+
+  .texto-ambiente {
+    font-size: 2rem;
+  }
+
+  .card-item{
+    width: 22rem;
+    font-size: 1rem;
+  }
+
+  .card-title{
+    font-size: 2rem;
+  }
+
+  .card-text{
+    font-size: 1.5rem;
+  }
+}

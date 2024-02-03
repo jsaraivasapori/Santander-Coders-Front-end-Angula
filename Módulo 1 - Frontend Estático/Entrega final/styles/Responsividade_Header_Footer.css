@@ -1,0 +1,57 @@
+@media (max-width: 880px) {
+  #footer-contato article {
+    color: white;
+    padding: 0px;
+  }
+
+  .form-area h2 {
+    text-align: center;
+    font-size: 32px;
+  }
+  .form-area form {
+    width: 90%;
+  }
+
+  .contatos h2 {
+    font-size: 32px;
+  }
+  .links-contato {
+    flex-direction: column;
+  }
+
+  .linkedin {
+    border-right: none;
+  }
+}
+
+@media (min-width: 990px) {
+  .form-area form {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1300px) {
+  .form-area form {
+    width: 40%;
+  }
+}
+
+@media (min-width: 1600px) {
+  .form-area h2,
+  #contatos .contato {
+    font-size: 4rem;
+  }
+
+  .form-area form {
+    width: 50%;
+  }
+
+  .linkedin nav li a,
+  .github nav li a {
+    font-size: 2rem;
+  }
+
+  .direitos-reservados p {
+    font-size: 2rem;
+  }
+}

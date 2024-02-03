@@ -1,0 +1,85 @@
+#footer-contato {
+  background: var(--third-color);
+}
+
+#footer-contato article {
+  color: white;
+  padding: 50px;
+}
+
+.form-area {
+  padding: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.form-area h2,
+#contatos h2 {
+  font-size: 2.3rem;
+}
+
+.form-area form {
+  width: 30%;
+  padding: 1.5rem;
+  background: var(--primary-color);
+  border: 1px solid var(--second-color);
+  border-radius: 35px;
+  background: var(--second-color);
+}
+
+.form-label,
+.form-check-label {
+  font-size: 1.5rem;
+}
+
+.btn.btn-primary.submit-form {
+  background: var(--third-color);
+  border: none;
+  width: 100%;
+  padding: 10px;
+  color: var(--primary-color);
+}
+
+.btn.btn-primary.submit-form:hover {
+  background: var(--primary-color);
+  color: var(--third-color);
+}
+
+#contatos {
+  text-align: center;
+}
+
+.links-contato {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  list-style: none;
+}
+
+.linkedin {
+  border-right: 1px solid white;
+  padding: 1rem;
+}
+
+.github {
+  padding: 1rem;
+}
+
+.links-contato nav {
+  font-size: 1.2rem;
+}
+
+.direitos-reservados {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 5rem;
+}
+
+.direitos-reservados p {
+  width: 70%;
+  text-align: center;
+}

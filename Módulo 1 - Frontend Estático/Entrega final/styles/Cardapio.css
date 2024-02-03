@@ -1,0 +1,52 @@
+main{
+  color: var(--primary-color);
+}
+
+main h2{
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 2rem;
+}
+
+.entradas,
+.pratos-principais,
+.sobremesas,
+.bebidas{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.row.g-0{
+  align-items: center;
+}
+
+.card.mb-3{
+  border-radius: 15px;
+  text-align: center;
+}
+
+.card {
+  width: 240px;
+  padding: 20px;
+}
+
+.img-fluid{
+  border-radius: 7px;
+  width: 100%;
+  height: auto;
+}
+.card-title{
+  font-size: 1.5rem;
+}
+
+.card-text,
+.text-body secondary{
+  font-size: 1rem;
+}
+
+.text-body-secondary{
+  font-weight: 600;
+}
