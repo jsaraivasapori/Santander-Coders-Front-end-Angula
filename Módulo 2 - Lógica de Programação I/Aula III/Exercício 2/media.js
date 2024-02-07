@@ -6,8 +6,8 @@
     */
 
 const listaDeAlunos = [
-  { nome: "João", notas: [8, 7] },
-  { nome: "Maria", notas: [9, 8] },
+  { nome: "João", notas: [8, 7,10] },
+  { nome: "Maria", notas: [9, 8,10] },
   { nome: "Carlos", notas: [6, 5] },
   { nome: "Ana", notas: [7, 6] },
   { nome: "Pedro", notas: [10, 9] },
@@ -18,9 +18,19 @@ const listaDeAlunos = [
   { nome: "Juliana", notas: [10, 9] },
 ];
 
-for (let i in listaDeAlunos){
-  let aluno = listaDeAlunos[i]
-  let media = aluno.notas[0]+aluno.notas[1]/2.
-  console.log(`O aluno ${aluno.nome} tem uma media de ${media}`)
-  
+
+
+for (let aluno in listaDeAlunos){
+  let indiceNotas = 0
+  let somaNotas = 0
+  while(indiceNotas< listaDeAlunos[aluno].notas.length){
+    somaNotas +=listaDeAlunos[aluno].notas[indiceNotas]
+    mediaAluno = Math.round(somaNotas/listaDeAlunos[aluno].notas.length)
+    indiceNotas++
+
+  }
+  // console.log(`${listaDeAlunos[aluno].nome}, somatorio ${somaNotas}`)
+  console.log(`${listaDeAlunos[aluno].nome} teve média de ${mediaAluno}`)
+  // console.log(somaNotas)
+  // console.log(mediaAluno);
 }
