@@ -15,7 +15,7 @@ console.log(pessoas.every((pessoa) =>{
   pessoa.nome.length > 3
 }));
 
-console.log( pessoas.every((pessoa) =>{
+log pessoas.every((pessoa) =>{
   return pessoa.nome && pessoa.idade != undefined
  
-}));
+})
