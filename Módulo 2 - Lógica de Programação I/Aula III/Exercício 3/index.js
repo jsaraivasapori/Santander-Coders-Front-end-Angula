@@ -6,12 +6,12 @@
 const prompt = require('prompt-sync')();
 
 const entry = prompt("Informe seu bilhete separados por vírgula.:")
-let arr=entry.split(",").sort()
+let arr =entry.split(",").sort()
 let bilhetePremiado = []
 
 for (let i = 0; i<6; i++){
     
-    bilhetePremiado.push(Math.round(Math.random()*10))
+    bilhetePremiado.push(Math.round(Math.random()*10)+1)
 }
 
 if(arr.length != bilhetePremiado.length){
