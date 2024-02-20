@@ -1,5 +1,5 @@
 // Não alterar este código, a menos que haja uma boa justificativa.
-const enviarEmail = (addressee, subject, body) => {
+export const enviarEmail = (addressee, subject, body) => {
   if (!addressee) {
     return {
       status: "Error",
@@ -37,4 +37,3 @@ const enviarEmail = (addressee, subject, body) => {
   return { status: "Sucess", message: "E-mail enviado com sucesso!" };
 };
 
-module.exports = enviarEmail;
