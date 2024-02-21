@@ -20,7 +20,7 @@ const data = new Date()
 const diaSemana = obterDiaSemana(data)
 
 if(diaSemana === "Segunda"){
-    
+
     disparoDeEmail(clientesVerificados)
 
     if(statuss === "Error" && message ==="O campo de assunto não deveria estar vazio ao enviar um e-mail."){
@@ -32,7 +32,7 @@ if(diaSemana === "Segunda"){
     console.log("Emails enviados com sucesso")
 
  }else{
-    console.log(`Os email são disparados toda **Segunda** e hoje ainda é ${diaSemana}. Aguarde até a próxima data`);
+    console.log(`Os emails são disparados toda **Segunda** e hoje ainda é ${diaSemana}. Aguarde até a próxima data`);
  }
 
 
