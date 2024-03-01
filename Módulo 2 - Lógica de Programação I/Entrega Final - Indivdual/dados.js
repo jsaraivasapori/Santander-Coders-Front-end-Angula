@@ -1,4 +1,4 @@
-export let dadosContato = [
+export let dadosCliente = [
   {cliente: "João Vitor Saraiva Sapori", email: "joaosaraiva@dev.com", receberEmail: true},
   {cliente: "Maria Silva", email: "mariasilva@lla.com", receberEmail: false},
   {cliente: "Carlos Pereira", email: "carlospereira@delo.com", receberEmail: true},

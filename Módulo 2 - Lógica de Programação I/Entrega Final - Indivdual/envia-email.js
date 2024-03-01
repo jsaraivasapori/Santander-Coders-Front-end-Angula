@@ -2,14 +2,14 @@
 export const enviarEmail = (addressee, subject, body) => {
   if (!addressee) {
     return {
-      status: "Error",
+      statuss: "Error",
       message: "Um destinatário precisa ser fornecido ao enviar um e-mail.",
     };
   }
 
   if (!subject) {
     return {
-      status: "Error",
+      statuss: "Error",
       message:
         "O campo de assunto não deveria estar vazio ao enviar um e-mail.",
     };
@@ -17,7 +17,7 @@ export const enviarEmail = (addressee, subject, body) => {
 
   if (!body) {
     return {
-      status: "Error",
+      statuss: "Error",
       message: "O corpo da mensagem precisa ser fornecido ao enviar um e-mail.",
     };
   }
@@ -26,7 +26,7 @@ export const enviarEmail = (addressee, subject, body) => {
     `
         De: news@carstore.com
         Para: ${addressee}
-        Assunto: ${subject}
+        Assunto: ${subject}, aqui está sua newsletter
         
         ${body}
         
