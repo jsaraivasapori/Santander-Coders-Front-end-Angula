@@ -9,10 +9,10 @@
 */
 
 
-class Conta{
-  Titular
+export class Conta{
+  #Titular
   #Saldo = 0
-  Ativa = true
+  #Ativa = true
 
 
   constructor(titular){
@@ -22,7 +22,17 @@ class Conta{
     else if(titular.length < 4 ){
       throw Error("O titular precisa ter no mínimo 4 caracteres ")
     }
-    this.Titular = titular
+    this.#Titular = titular
+  }
+
+  get titular(){
+      return this.#Titular
+  }
+  get saldo(){
+    return this.#Saldo
+  }
+  get ativa(){
+    return this.#Ativa
   }
 
   sacar(valor){
@@ -31,18 +41,29 @@ class Conta{
   }
 
   depositar(valor){
-    if(this.Ativa === true){
+    if(this.#Ativa === true){
 
-    }else if(!isNaN(valor) && valor > 0){
+    if(!isNaN(valor) && valor > 0){
       this.#Saldo = this.#Saldo + valor
       console.log(`Deposito de ${valor} realizado com sucesso`)
     }
-
+  }
   }
 
   inativarConta(){
-    return (this.#Saldo === 0 && this.Ativa === true) ? this.Ativa = false : console.log("A conta não pode ser inativada, verifique se está ativa e o seu saldo");
+    return (this.#Saldo === 0 && this.Ativa === true) ? this.#Ativa = false : console.log("A conta não pode ser inativada, verifique se está ativa e o seu saldo");
   }
+
+ 
+  
+  
+  
 }
 
+const conta = new Conta("João Vitor")
+conta.depositar(200)
+console.log(`Saldo após depósito  ${conta.saldo}`)
+conta.sacar(20)
+console.log(`Saldo após saque  ${conta.saldo}`)
 
+conta.inativarConta()
