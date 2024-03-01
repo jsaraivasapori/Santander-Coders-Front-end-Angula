@@ -16,11 +16,16 @@ export class Conta{
 
 
   constructor(titular){
+    const caracteresInvalidos = ["0","1","2","3","4","5","6","7","8","9",]
     if(typeof titular !== "string"){
       throw Error("O titular é do tipo string")
     }
     else if(titular.length < 4 ){
       throw Error("O titular precisa ter no mínimo 4 caracteres ")
+    }
+    else if(caracteresInvalidos.some(caractere => titular.includes(caractere))){
+      throw Error ("O nome do titular não é do tipo alfanumérico")
+
     }
     this.#Titular = titular
   }
@@ -43,7 +48,7 @@ export class Conta{
   depositar(valor){
     if(this.#Ativa === true){
 
-    if(!isNaN(valor) && valor > 0){
+      if(!isNaN(valor) && valor > 0){
       this.#Saldo = this.#Saldo + valor
       console.log(`Deposito de ${valor} realizado com sucesso`)
     }
@@ -51,7 +56,7 @@ export class Conta{
   }
 
   inativarConta(){
-    return (this.#Saldo === 0 && this.Ativa === true) ? this.#Ativa = false : console.log("A conta não pode ser inativada, verifique se está ativa e o seu saldo");
+    return (this.#Saldo === 0 && this.#Ativa === true) ? this.#Ativa = false : console.log("A conta não pode ser inativada, verifique se está ativa e o seu saldo");
   }
 
  
@@ -60,10 +65,10 @@ export class Conta{
   
 }
 
-const conta = new Conta("João Vitor")
+/*const conta = new Conta("João Vitor")
 conta.depositar(200)
 console.log(`Saldo após depósito  ${conta.saldo}`)
 conta.sacar(20)
 console.log(`Saldo após saque  ${conta.saldo}`)
 
-conta.inativarConta()
+conta.inativarConta()*/
