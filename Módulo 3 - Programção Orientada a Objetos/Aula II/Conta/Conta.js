@@ -31,7 +31,12 @@ class Conta{
   }
 
   depositar(valor){
-    return (this.#Saldo > 0) ? this.#Saldo = this.#Saldo + valor : console.log("Saldo indisponível");
+    if(this.Ativa === true){
+
+    }else if(!isNaN(valor) && valor > 0){
+      this.#Saldo = this.#Saldo + valor
+      console.log(`Deposito de ${valor} realizado com sucesso`)
+    }
 
   }
 
@@ -40,4 +45,4 @@ class Conta{
   }
 }
 
-  
+
