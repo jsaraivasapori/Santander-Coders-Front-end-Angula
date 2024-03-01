@@ -19,34 +19,12 @@ class Calculo{
 
    
    if(typeof primeiroNumero !== "number" || typeof segundoNumero !== "number" ){
-      throw new Error("você precisa passar numeros nas operações")
+      throw new Error("você precisa passar numeros como parametros do método")
     }
 
     this.PrimeiroNumero = primeiroNumero
     this.SegundoNumero = segundoNumero
   
-    /*switch(this.Operacao){
-
-      case "+":
-        this.somar(this.PrimeiroNumero,this.SegundoNumero)
-        break
-      
-      case "-":
-          this.subtrair(this.PrimeiroNumero,this.SegundoNumero)
-          break
-
-      case  "*":
-        this.multiplicar(this.PrimeiroNumero,this.SegundoNumero)
-        break
-      case "/":
-        if(this.SegundoNumero === 0){
-          throw new Error("Divisão por 0 não existe")
-        }
-        this.dividir(this.PrimeiroNumero,this.SegundoNumero)
-        break
-      default:
-        console.log("Algo deu errado, refaça a operação."); 
-    }*/
   }
 
   somar(){
