@@ -41,22 +41,32 @@ export class Conta{
   }
 
   sacar(valor){
-    return (this.#Saldo - valor > 0) ? this.#Saldo = this.#Saldo - valor : console.log("Saldo insuficiente para saque")
+    if (typeof valor !== "undifined" && !isNaN(valor) && valor > 0){
+      return (this.#Saldo - valor >= 0) ? this.#Saldo = this.#Saldo - valor : console.log("Saldo insuficiente para saque")
+    }
+    throw Error("Verifique o valor e refaça a operação")
     
   }
 
   depositar(valor){
     if(this.#Ativa === true){
 
-      if(!isNaN(valor) && valor > 0){
-      this.#Saldo = this.#Saldo + valor
-      console.log(`Deposito de ${valor} realizado com sucesso`)
-    }
+      if(typeof valor !== "undifined" && !isNaN(valor) && valor > 0){
+          this.#Saldo = this.#Saldo + valor
+          return console.log(`Deposito de R$ ${valor} realizado com sucesso`)
   }
+    throw Error("Verifique o valor e refaça a operação.")  
+    
+  }
+    throw Error("A conta está inativa, nenhuma movimentação é permitida");
   }
 
   inativarConta(){
-    return (this.#Saldo === 0 && this.#Ativa === true) ? this.#Ativa = false : console.log("A conta não pode ser inativada, verifique se está ativa e o seu saldo");
+     if(this.#Saldo === 0 && this.#Ativa === true) { 
+      this.#Ativa = false  
+      return console.log("Operação realizada com sucesso. Conta inativada");
+    }
+    console.log("A conta não pode ser inativada, verifique se está ativa e o seu saldo")
   }
 
  
@@ -65,10 +75,6 @@ export class Conta{
   
 }
 
-/*const conta = new Conta("João Vitor")
-conta.depositar(200)
-console.log(`Saldo após depósito  ${conta.saldo}`)
-conta.sacar(20)
-console.log(`Saldo após saque  ${conta.saldo}`)
+const conta = new Conta("João Vitor")
+conta.inativarConta()
 
-conta.inativarConta()*/
