@@ -1,0 +1,13 @@
+{
+  "name": "aula-iii",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Implentação de novas funcionalidades na classe Conta. Continuação do exercício da aula ii",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "João Vitor",
+  "license": "ISC"
+}
