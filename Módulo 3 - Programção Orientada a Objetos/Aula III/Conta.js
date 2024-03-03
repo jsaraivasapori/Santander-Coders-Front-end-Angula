@@ -7,27 +7,26 @@
 -Faça uso de sua classe em um script;
 -Em seu script, crie um array que receba todas as instâncias de conta. Antes de realizar a criação de uma nova conta, verifique se já existe um titular com mesmo nome dentro do mesmo e, so crie a conta caso não exista (dê feedback ao seu usuarios sobre a criação ou nao).
 */
-
-
+import { Pessoa } from './Pessoa.js';
 export class Conta{
   #Titular
   #Saldo = 0
   #Ativa = true
+  
 
-
-  constructor(titular){
-    const caracteresInvalidos = ["0","1","2","3","4","5","6","7","8","9",]
-    if(typeof titular !== "string"){
-      throw Error("O titular é do tipo string")
+  constructor(dadosCliente){
+    /*const caracteresInvalidos = ["0","1","2","3","4","5","6","7","8","9",]*/
+    if( !(dadosCliente instanceof Pessoa)){
+      throw Error("Problema ao migrar dados de Pessoa ao titular")
     }
-    else if(titular.length < 4 ){
+    /*else if(dadosCliente.Nome.length < 4 ){
       throw Error("O titular precisa ter no mínimo 4 caracteres ")
     }
-    else if(caracteresInvalidos.some(caractere => titular.includes(caractere))){
+    else if(caracteresInvalidos.some(caractere => titular.Nome.includes(caractere))){
       throw Error ("O nome do titular não é do tipo alfanumérico")
 
-    }
-    this.#Titular = titular
+    }*/
+    this.#Titular = dadosCliente
   }
 
   get titular(){
@@ -69,12 +68,10 @@ export class Conta{
     console.log("A conta não pode ser inativada, verifique se está ativa e o seu saldo")
   }
 
- 
-  
+
   
   
 }
 
-const conta = new Conta("João Vitor")
-conta.inativarConta()
+
 
