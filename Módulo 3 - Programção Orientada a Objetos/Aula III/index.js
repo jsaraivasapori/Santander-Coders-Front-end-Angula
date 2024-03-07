@@ -16,6 +16,7 @@ import { Pessoa } from "./Pessoa.js";
 }
 */
 
+
 const pessoa1 = new Pessoa("João", 24, "000.000.000-00")
 
 const conta1 = new Conta(pessoa1)
