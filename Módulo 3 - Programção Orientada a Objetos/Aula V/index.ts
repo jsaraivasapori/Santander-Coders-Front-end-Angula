@@ -4,10 +4,31 @@
   _cpf: string
   
 
-  constructor(nome : string, idade : number, cpf : string ){
+  constructor(nome : string = "", idade : number = 0 , cpf : string = "" ){
+    const caracteresInvalidos = ["0","1","2","3","4","5","6","7","8","9",]
+   
+    if(nome ===""){
+     throw Error("O nome não pode ser vazio");
+    
+    }
+    if (nome.length < 4){
+      throw Error("O titular precisa ter no mínimo 4 caracteres ")
+    }
+    if(caracteresInvalidos.some(caractere => nome.includes(caractere))){
+      throw Error ("O nome do titular não é do tipo alfanumérico")
+    }
     this._nome = nome
+    if( idade < 18){
+      throw Error("A idade não pode ser menor que 18");     
+    }
     this._idade = idade
+    if (cpf === ""){
+      throw Error("O CPF não pode ser nulo");
+      
+    }
     this._cpf= cpf
+    console.log("Instância criada com sucesso");
+    
   }
 
   exibirDados() : string{
@@ -23,13 +44,7 @@ class Conta{
 
   constructor(titular:Pessoa){
 
-    const caracteresInvalidos = ["0","1","2","3","4","5","6","7","8","9",]
-    if (titular._nome.length < 4){
-      throw Error("O titular precisa ter no mínimo 4 caracteres ")
-    }
-    else if(caracteresInvalidos.some(caractere => titular._nome.includes(caractere))){
-      throw Error ("O nome do titular não é do tipo alfanumérico")
-    }
+    
     this._titular = titular
     this._saldo = 0
     this._ativa = true
@@ -88,7 +103,7 @@ class Conta{
 
 
 
-const pessoa1 = new Pessoa("Joao Vitor",24,"0000")
+const pessoa1 = new Pessoa("Joao",24, "00000")
 const contaJoao = new Conta(pessoa1)
 
 const pessoa2 = new Pessoa("Rosangenla", 50, "00000")
@@ -98,7 +113,7 @@ const contaRosangela = new Conta(pessoa2)
 
 contaJoao.depositar(200)
 contaJoao.transferir(20, contaRosangela)
-console.log(`Saldo joao : ${contaJoao.saldo}`);
+console.log(`Saldo João : ${contaJoao.saldo}`);
 
 console.log(`Saldo Rosangela: ${contaRosangela.saldo}`);
 
