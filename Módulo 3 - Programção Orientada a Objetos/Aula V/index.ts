@@ -1,7 +1,7 @@
  class Pessoa {
-  _nome: string
-  _idade: number
-  _cpf: string
+  private _nome: string
+  private  _idade: number
+  private _cpf: string
   
 
   constructor(nome : string = "", idade : number = 0 , cpf : string = "" ){
@@ -31,16 +31,28 @@
     
   }
 
+  get nome() : string{
+    return this._nome
+  }
+
+  get idade() : number {
+    return this._idade
+  }
+
+  get cpf() : string{
+    return this._cpf
+  }
+
   exibirDados() : string{
-    return `Nome: ${this._nome}, Idade: ${this._idade}, CPF: ${this._cpf}`
+    return `Nome: ${this.nome}, Idade: ${this.idade}, CPF: ${this.cpf}`
   }
 }
 
 
 class Conta{
-  _titular:Pessoa
-  _saldo:number
-  _ativa:boolean
+  private _titular:Pessoa
+  private _saldo:number
+  private  _ativa:boolean
 
   constructor(titular:Pessoa){
 
