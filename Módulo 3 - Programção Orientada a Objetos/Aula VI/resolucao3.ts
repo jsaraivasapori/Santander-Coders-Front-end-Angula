@@ -1,14 +1,15 @@
 
 import promptSync from 'prompt-sync';
 const prompt = promptSync()
+
 class JogoAdvinhacao{
     
     constructor() {
     }
 
     gerarNumeroAleatorio():number{
-        const numeroAleatorio:number =Math.round((Math.random()*11)+1)
-        return numeroAleatorio
+        return Math.round((Math.random()*11)+1)
+        
     }
 
     verificaPalpite(valor:number):boolean{
@@ -34,39 +35,32 @@ class JogoAdvinhacao{
     }
 
     solicitarPalpite(): number{
-        const palpite = Number(prompt("Informe um número entre 0 a 10.: "))
+        const palpite = Number(prompt("Informe um número de  0 a 10.: "))
         return palpite
     }
- 
+    
+    solicitarOpcao(): number {
+        const opcao = Number(prompt("Escolha uma opção: "));
+        return opcao;
+    }
           
     
 
-    // inicar():void{
-    //     do{
-    //         this.mostrarMenu()
-    //         const escolha = this.solicitarPalpite()
-
-    //         if (isNaN(escolha)) {
-    //             continue;
-    //           }
-    //           if (escolha < 0 || escolha > 2) {
-    //             continue;
-    //           }
-    //         }while (escolha === null){
-
-    //           if (escolha == 2) {
-    //             return;
-    //           }
-          
-    //           switch (escolha) {
-    //             case 1:
-    //               this.verificaPalpite(escolha)
-    //               break;
-    //           }
-                
-    //         }
-          
-    //           prompt('Aperte enter para continuar');
+    inicar():void{
+       
+        let opcao: number;
+        let acertou = false;
+        do {
+            this.mostrarMenu();
+            opcao = this.solicitarOpcao();
+            if (opcao === 1) {
+                const palpite = this.solicitarPalpite();
+                acertou = this.verificaPalpite(palpite);
+            }
+        } while (opcao !== 2 && !acertou);
+    }
         
-    // }
-}
+    }
+
+const jogo = new JogoAdvinhacao();
+jogo.inicar()
