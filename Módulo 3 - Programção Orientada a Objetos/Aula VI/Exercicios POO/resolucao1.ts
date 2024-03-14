@@ -18,7 +18,7 @@ class Produto{
     }
 
     verificarDisponibilidade() : string{
-        if(this._quantidade < 0){
+        if(this._quantidade <= 0){
             return this._disponibilidade = "Indisponível"
         }
 
