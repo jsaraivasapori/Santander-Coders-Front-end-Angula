@@ -3,26 +3,30 @@ import promptSync from 'prompt-sync';
 const prompt = promptSync()
 
 class JogoAdvinhacao{
-    
+
+    static _tentativas:number = 0
+
     constructor() {
     }
 
-    gerarNumeroAleatorio():number{
+    static gerarNumeroAleatorio():number{
         return Math.round((Math.random()*11)+1)
         
     }
 
     verificaPalpite(valor:number):boolean{
-        if(valor < this.gerarNumeroAleatorio()){
+        JogoAdvinhacao._tentativas ++
+        if(valor < JogoAdvinhacao.gerarNumeroAleatorio()){
             console.log("Palpite abaixo do número premiado");
             return false
         }
-        if(valor > this.gerarNumeroAleatorio()){
+        if(valor > JogoAdvinhacao.gerarNumeroAleatorio()){
             console.log("Palpite a cima do número premiado")
             return false
+
         }
         
-        console.log("Parabéns você acertou!")
+        console.log(`Parabéns você acertou! Foram necessárias ${JogoAdvinhacao._tentativas}`)
         return true
         
     } 
