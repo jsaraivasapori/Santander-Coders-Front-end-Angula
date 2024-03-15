@@ -31,10 +31,30 @@ class Livro{
   }
 }
 
+class Biblioteca  {
+  
+  private _listaLivros : Livro[]
+
+  constructor(){
+    
+    this._listaLivros = []
+  }
+
+  get listaLivros() : Livro[]{
+    return this._listaLivros
+  }
+
+  adicionar(livro:Livro):boolean{
+    if(this._listaLivros.)
+    this._listaLivros.push(livro)
+    return true
+  }
+  
+
+}
+
 
    
 
 
-const livro1 : Ilivro = {titulo: "O Pequeno Príncipe ",autor: "Antoine de Saint-Exupéry",anoPublicacao: 1943}
-console.log( new Livro(livro1))
 
