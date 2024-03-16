@@ -62,9 +62,10 @@ class Biblioteca  {
   }
 
   static remover(titulo: string):boolean{
-    const index = this._listaLivros.findIndex(alvo => alvo._titulo === titulo)
+    const index = Biblioteca.pesquisarLivroporTitulo(titulo)
 
-    if(index === -1){
+    if(!index){
+
       console.error("Não há livro com esse nome")
       return false
       
@@ -74,11 +75,36 @@ class Biblioteca  {
     
   }
 
-  static pesquisarLivro(titulo?:string, autor? : string):void{
-
-  }
+  static pesquisarLivroporTitulo(titulo:string):number{
+    const index = this._listaLivros.findIndex(alvo => alvo._titulo === titulo)
+    if(index === -1){
+          console.error("Não há livro com esse título")
+          return -1
+  } 
+    console.log(
+    ` Resultado da Pesquisa :
+      Título: ${Biblioteca._listaLivros[index]._titulo} | Autor: ${Biblioteca._listaLivros[index]._autor} | AnoPublicacao: ${Biblioteca._listaLivros[index]._anoPublicacao}
+    `
+    )
+    return  index
   
 
+}
+
+static pesquisarLivroPorAutor(autor:string): number{
+  const index = this._listaLivros.findIndex(alvo => alvo._autor === autor )
+    if(index === -1){
+          console.error("Não há livro com esse autor")
+          return -1
+  } 
+    console.log(
+    ` Resultado da Pesquisa :
+      Título: ${Biblioteca._listaLivros[index]._titulo} | Autor: ${Biblioteca._listaLivros[index]._autor} | AnoPublicacao: ${Biblioteca._listaLivros[index]._anoPublicacao}
+    `
+    )
+    return  index
+
+}
 }
 
 const exemplar1: Ilivro = {
@@ -130,10 +156,13 @@ Biblioteca.adicionar(livro3)
 console.log("\nLista de livros sem exclusao:\n");
 
 console.log(Biblioteca._listaLivros)
-Biblioteca.remover("aula")
+// Biblioteca.remover("aula")
 
-console.log("\nLista de livros após executar o deletar\n")
-console.log(Biblioteca._listaLivros)
+// console.log("\nLista de livros após executar o deletar\n")
+// console.log(Biblioteca._listaLivros)
+
+Biblioteca.pesquisarLivroPorAutor("Herman Melville")
+Biblioteca.pesquisarLivroporTitulo("1984")
 
 
 
