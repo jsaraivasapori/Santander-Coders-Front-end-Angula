@@ -10,7 +10,7 @@ class Livro{
   _anoPublicacao : number
 
   constructor(livro:Ilivro){
-    if(!this.validarStringTitulo(livro.titulo)){
+    if(!Livro.validarStringTitulo(livro.titulo)){
       throw Error("Título inválido")
     }
 
@@ -27,7 +27,7 @@ class Livro{
     
   }
 
-  private validarStringTitulo(srt:string):boolean{
+  static validarStringTitulo(srt:string):boolean{
     if(srt === ""){
       return false
     }
@@ -60,50 +60,79 @@ class Biblioteca  {
     console.log(`Livro ${livro._titulo} adcionado com sucesso.`)
     return true
   }
+
+  static remover(titulo: string):boolean{
+    const index = this._listaLivros.findIndex(alvo => alvo._titulo === titulo)
+
+    if(index === -1){
+      console.error("Não há livro com esse nome")
+      return false
+      
+    }
+    this._listaLivros.splice(index,1)
+    return true
+    
+  }
+
+  static pesquisarLivro(titulo?:string, autor? : string):void{
+
+  }
   
 
 }
 
-const livro1: Ilivro = {
+const exemplar1: Ilivro = {
   titulo: "1984",
   autor: "George Orwell",
   anoPublicacao: 1949
 };
 
-const livro2: Ilivro = {
+const exemplar2: Ilivro = {
   titulo: "O Senhor dos Anéis",
-  autor: "J.R.R. Tolkien",
+  autor: "JRR Tolkien",
   anoPublicacao: 1954
 };
 
-const livro3: Ilivro = {
+const exemplar3: Ilivro = {
   titulo: "Moby Dick",
   autor: "Herman Melville",
   anoPublicacao: 1851
 };
 
-const livro4: Ilivro = {
-  titulo: "Orgulho e Preconceito",
-  autor: "Jane Austen",
-  anoPublicacao: 1813
-};
+// const livro4: Ilivro = {
+//   titulo: "Orgulho e Preconceito",
+//   autor: "Jane Austen",
+//   anoPublicacao: 1813
+// };
 
-const livro5: Ilivro = {
-  titulo: "Cem Anos de Solidão",
-  autor: "Gabriel García Márquez",
-  anoPublicacao: 1967
-};
+// const livro5: Ilivro = {
+//   titulo: "Cem Anos de Solidão",
+//   autor: "Gabriel García Márquez",
+//   anoPublicacao: 1967
+// };
 
-const livro6: Ilivro = {
-  titulo: "Dom Quixote",
-  autor: "Miguel de Cervantes",
-  anoPublicacao: 1605
-};
+// const livro6: Ilivro = {
+//   titulo: "Dom Quixote",
+//   autor: "Miguel de Cervantes",
+//   anoPublicacao: 1605
+// };
 
 
 
-const livro = new Livro(livro1)
-Biblioteca.adicionar(livro)
+const livro1 = new Livro(exemplar1)
+Biblioteca.adicionar(livro1)
+
+const livro2 = new Livro(exemplar2)
+Biblioteca.adicionar(livro2)
+
+const livro3 = new Livro(exemplar3)
+Biblioteca.adicionar(livro3)
+console.log("\nLista de livros sem exclusao:\n");
+
+console.log(Biblioteca._listaLivros)
+Biblioteca.remover("aula")
+
+console.log("\nLista de livros após executar o deletar\n")
 console.log(Biblioteca._listaLivros)
 
 
