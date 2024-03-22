@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Meu titulo
+    </h1>
+    <p class="minhaClasse" name="meuName">Lorem ipsum dolor sit amet consectetur 
+        adipisicing elit. Accusamus modi deserunt ducimus! Aperiam, quos! Dolore deleniti at, doloremque numquam blanditiis veniam, repudiandae vitae veritatis aliquid eum illum sint est voluptatibus?</p>
+    
+    <p class="minhaClasse">Meu segundo parágrafo</p>
+    
+    <div hidden id="meuId">
+        Meu conteudo
+    </div>
+
+    <input style="width: 50px;" type="text" value="meuValue">
+    <button onclick="cliqueNoBotao()">Meu botao</button>
+    </body>
+<script>
+    function cliqueNoBotao(){
+        console.log("Clicado");
+    }
+    /* getElementsByTagName
+        getElementsByClassName
+        getElementById
+        getElementsByName
+        querySelector
+        Retorna um Elemento
+        querySelectorAll
+        Retorna uma NodeList */
+
+        /*
+        . = classe
+        # = id
+        nome = tag
+        */
+
+        /*
+        HTMLCollection retorna o HTML Literal
+        NodeList 
+        */
+
+        console.log(document.getElementsByTagName("h1"))
+        console.log(document.getElementsByClassName("minhaClasse"))
+        console.log(document.getElementById("meuId"))
+        console.log(document.getElementsByName("meuName"))
+        console.log(document.querySelector("p"))
+        console.log(document.querySelectorAll("p"))
+
+        /*
+        element.innerHTML = "" - Altera o conteudo levando 
+                                  em consideração que o texto passado
+                                  é um HTML
+
+        element.innerText = "" - Altera o conteudo levando 
+                                  em consideração que o texto passado
+                                  é um texto literal
+
+        element.textContent = retorna o texto de um elemento
+        element.appendChild = insere um elemento dentro elemento selecionado
+                                Tem que ser sempre um elemento
+        document.createElement() = cria um elemento dentro do document que pode ser inserido depois
+        element.removeAttribute('nomeDoAtributo') = remove o atributo
+        */
+
+</script>
+</html>
