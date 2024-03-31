@@ -19,6 +19,7 @@ function adicionarLampadas(){
 
   img.addEventListener('click', quebrarLampada)
   img.addEventListener("mouseover", acenderLampada)
+  img.addEventListener("mouseout", apagarLampada)
 
   div.append(img,p) // img e p sao irmaos, ou seja, filhos da div
   container.append(div) // div é filha de container
@@ -30,11 +31,17 @@ function adicionarLampadas(){
 function quebrarLampada(ev){
   ev.target.src = "./img/quebrada.jpg" //refere ao elemento especifico que disparou o evento
   ev.target.removeEventListener("mouseover",acenderLampada)
+  ev.target.removeEventListener("mouseout", apagarLampada)
   
 }
 
 function acenderLampada(ev){
   ev.target.src = "./img/acesa.jpg"
+  
 
 }
 
+function apagarLampada(ev){
+  ev.target.src = "./img/apagada.jpg"
+  
+}
