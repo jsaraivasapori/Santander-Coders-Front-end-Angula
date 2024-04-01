@@ -8,7 +8,7 @@ function adcionarProduto() {
     btnAdcionar.addEventListener("click", () => {
         const limitePreco = document.getElementById("limite").value.trim();
         const produto = document.getElementById("produto").value.trim();
-        const valor = document.getElementById("valor").value.trim();
+        const valor = parseFloat(document.getElementById("valor").value);
         limiteGasto = parseFloat(limitePreco);
         produtos.push({
             Id: id,
@@ -18,7 +18,7 @@ function adcionarProduto() {
         id++;
         listarProdutos();
         riscarProdutoLista();
-        verificarGastoMaximo(limitePreco);
+        indicarLimiteCompraEstourao(limitePreco);
     });
 }
 
@@ -52,15 +52,16 @@ function riscarProdutoLista() {
     });
 }
 
-function indicaLimiteEstourao(valorLimite) {
-    const spamSoma = document.getElementById("soma");
+function indicarLimiteCompraEstourao(valorLimite) {
+    const spamSoma = document.querySelector("h3");
     let somaProdutos = produtos.reduce(
-        (valor, produto) => (soma += produto.Valor),
+        (valor, produto) => (valor += produto.Valor),
         0
     );
-
+    console.log(somaProdutos);
     if (valorLimite < somaProdutos) {
-        spamSoma.className = ".checado";
+        spamSoma.className = "checado";
+        return;
     }
     spamSoma.className = "none";
 }
