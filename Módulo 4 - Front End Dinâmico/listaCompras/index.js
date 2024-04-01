@@ -6,10 +6,10 @@ function adcionarProduto() {
     const btnAdcionar = document.getElementById("add");
 
     btnAdcionar.addEventListener("click", () => {
-        const limitPreco = document.getElementById("limite").value.trim();
+        const limitePreco = document.getElementById("limite").value.trim();
         const produto = document.getElementById("produto").value.trim();
         const valor = document.getElementById("valor").value.trim();
-        limiteGasto = parseFloat(limitPreco);
+        limiteGasto = parseFloat(limitePreco);
         produtos.push({
             Id: id,
             Produto: produto,
@@ -18,6 +18,7 @@ function adcionarProduto() {
         id++;
         listarProdutos();
         riscarProdutoLista();
+        verificarGastoMaximo(limitePreco);
     });
 }
 
@@ -51,6 +52,17 @@ function riscarProdutoLista() {
     });
 }
 
-function verificarGastoMaximo(valorLimite) {}
+function indicaLimiteEstourao(valorLimite) {
+    const spamSoma = document.getElementById("soma");
+    let somaProdutos = produtos.reduce(
+        (valor, produto) => (soma += produto.Valor),
+        0
+    );
+
+    if (valorLimite < somaProdutos) {
+        spamSoma.className = ".checado";
+    }
+    spamSoma.className = "none";
+}
 
 adcionarProduto();
