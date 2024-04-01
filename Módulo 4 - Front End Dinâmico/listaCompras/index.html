@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>lista compras aula 5</title>
+</head>
+<h1>Lista de compras</h1>
+<input id="limite" class="cabecalho" placeholder="Limite de preço (00.00)" type="text">
+<br>
+<input id="produto" placeholder="Produto" class="cabecalho" type="text">
+<input id="valor" placeholder="Valor (00.00)" class="cabecalho" type="text">
+<button id="add">Adicionar Produto</button>
+
+<ul id="lista">
+    <li>
+        <input class="checkbox" type="checkbox" name="" id="checkbox_produto_1">
+        <span>Arroz - 1kg</span>
+        <span>R$25,00</span>
+        <button>Remover</button>
+    </li>
+</ul>
+<hr>
+<h3>Soma </h3>
+<span id="soma">R$40,00</span>
+
+<body>
+</body>
+<script>
+
+    const checkbox = document.getElementById("checkbox_produto_1");
+
+    checkbox.addEventListener("click", () => {
+        const estaSelecionado = checkbox.checked;
+        checkbox.parentElement.querySelectorAll("span").forEach(el => {
+           el.style.textDecoration = estaSelecionado ? 'line-through' : 'none'
+        });
+    })
+
+    /*
+        Materia nova ->
+        Adicionar o line-through e retirá-lo para mexermos no style
+
+        Dado o atual HTML estilizado, vamos fazer o seguinte ->
+
+        Vamos utilizar um array de objetos para representar os nossos produtos.
+        Ao iniciar, vamos adicionar os elementos contidos no array ao HTML;
+        Poderemos selecionar o produto (Checkbox) e assim ele ficará riscado da lista.
+
+
+        DESAFIO
+        Teremos um campo para fazer a soma
+        Também teremos um campo chamado "Limite".
+        Ao ultrapassarmos esse limite, o valor da soma deverá ficar vermelho
+
+    */
+</script>
+
+</html>
