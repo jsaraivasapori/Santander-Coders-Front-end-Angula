@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/styles.css">
+    <script src="./index.js" defer></script>
     <title>lista compras aula 5</title>
 </head>
 <h1>Lista de compras</h1>
@@ -15,30 +16,19 @@
 <button id="add">Adicionar Produto</button>
 
 <ul id="lista">
-    <li>
-        <input class="checkbox" type="checkbox" name="" id="checkbox_produto_1">
-        <span>Arroz - 1kg</span>
-        <span>R$25,00</span>
-        <button>Remover</button>
-    </li>
+    
+    
 </ul>
+<button id="remover">Remover</button>
 <hr>
 <h3>Soma </h3>
-<span id="soma">R$40,00</span>
+<span id="soma"></span>
 
 <body>
 </body>
 <script>
 
-    const checkbox = document.getElementById("checkbox_produto_1");
-
-    checkbox.addEventListener("click", () => {
-        const estaSelecionado = checkbox.checked;
-        checkbox.parentElement.querySelectorAll("span").forEach(el => {
-           el.style.textDecoration = estaSelecionado ? 'line-through' : 'none'
-        });
-    })
-
+    
     /*
         Materia nova ->
         Adicionar o line-through e retirá-lo para mexermos no style
