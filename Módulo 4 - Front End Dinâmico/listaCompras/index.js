@@ -100,15 +100,27 @@ function armazenarListaArray(id, produto, valor) {
     });
 }
 
-function btnRemover(box) {
+function btnRemover() {
     const btnRemover = document.getElementById("remover");
 
     btnRemover.addEventListener("click", () => {
-        if (!produtos.length > 0) {
-            alert("Adicione algum produto primeiro para poder remover");
-            return console.error("Array vazio, impossível remover algo");
-        }
-        box.parentElement.remove();
+        const checkboxes = document.querySelectorAll("li .checkbox");
+        checkboxes.forEach((box) => {
+            if (box.checked) {
+                const idProduto = parseInt(
+                    box.id.replace("checkbox_produto_", "")
+                ); //pega somente o numero do id do produto que e do tipo checkbox_produto_1
+                const index = produtos.findIndex(
+                    (produto) => produto.Id === idProduto
+                ); // procura na lista o produto com o id do checkbox
+                if (index !== -1) {
+                    //se nao for o ultmio elemento da lista
+                    produtos.splice(index, 1); // remove do array
+                }
+                box.parentElement.remove(); // remove da tela
+            }
+        });
+        indicarLimiteCompraEstourao(limiteGasto); //atualiza a soma
     });
 }
 
