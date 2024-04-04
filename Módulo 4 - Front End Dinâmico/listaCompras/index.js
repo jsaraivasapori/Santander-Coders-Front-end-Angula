@@ -114,7 +114,7 @@ function btnRemover() {
                     (produto) => produto.Id === idProduto
                 ); // procura na lista o produto com o id do checkbox
                 if (index !== -1) {
-                    //se nao for o ultmio elemento da lista
+                    //se nao for o encontrato o metodo retorna -1
                     produtos.splice(index, 1); // remove do array
                 }
                 box.parentElement.remove(); // remove da tela
