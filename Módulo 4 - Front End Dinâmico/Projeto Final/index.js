@@ -1,25 +1,40 @@
+let valorInputs = {}
 function main() {
-  
-  
-    const btn = document.querySelector("#btn-start");
-    btn.addEventListener("click", (ev) => {
-      ev.preventDefault()
-      
-      const loginPage = "./index.html"
-      
-      if(!nameValdiation()){
+    if(sessionStorage.getItem("Dados Recuperados") === null){
+
+      const btn = document.querySelector("#btn-start");
+      btn.addEventListener("click", (ev) => {
+        ev.preventDefault()
+        
+        const loginPage = "./index.html"
+        
+
+
+
+
+        
+        if(!nameValdiation()){
+          return window.location.href = loginPage
+        }
+
+        if(!emailValidation()){
         return window.location.href = loginPage
-      }
+        }
 
-      if(!emailValidation()){
-      return window.location.href = loginPage
+        if(!cepValidation()){
+        return window.location.href = loginPage
+        }
+        sendSessionStorage(valorInputs)
+        return window.location.href = "./pages/teste.html";
+      });
       }
-
-      if(!cepValidation()){
-      return window.location.href = loginPage
-      }
-      return window.location.href = "./pages/teste.html";
-    });
+      
+      const recoveryDatas = JSON.parse(window.sessionStorage.getItem("Dados Recuperados"))
+      getName().value = recoveryDatas.nome
+      getEmail().value = recoveryDatas.email
+      getCep().value = recoveryDatas.cep
+    
+    
   }
   
   
@@ -27,7 +42,7 @@ function main() {
 
 //  Validação nome
 function nameValdiation(){
-  const name = document.querySelector("#name")
+  const name = getName()
   const nameField = name.value.trim()
   const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]*$/
 
@@ -40,9 +55,9 @@ function nameValdiation(){
     return false
   }
  
-  sessionStorage.setItem('name', nameField) // salva no session storage o nome validado
+  // sessionStorage.setItem('name', nameField) // salva no session storage o nome validado
 
-  
+  valorInputs.nome = nameField
   return true 
 }
 // Fim validação nome
@@ -52,7 +67,7 @@ function nameValdiation(){
 
 // Validação email
 function emailValidation(){
-  const email = document.querySelector("#email")
+  const email = getEmail()
   const emailField = email.value
   const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -65,8 +80,8 @@ function emailValidation(){
     return false
   }
   
-  sessionStorage.setItem('email', emailField) // salva no session storage o eamil validado
- 
+  // sessionStorage.setItem('email', emailField) // salva no session storage o eamil validado
+ valorInputs.email = emailField
   return true 
 }
 // Fim Validação e-mail
@@ -75,7 +90,7 @@ function emailValidation(){
 // Validação CEP
 function cepValidation(){
 
-  const cep = document.querySelector("#cep")
+  const cep = getCep()
   const cepField = cep.value.trim()
   const regex = /^[0-9]{5}-[0-9]{3}$/
 
@@ -88,13 +103,40 @@ function cepValidation(){
     return false
   }
   
-    sessionStorage.setItem('cep', cepField) // salva no session storage o cep validado
-  
+    // sessionStorage.setItem('cep', cepField) // salva no session storage o cep validado
+  valorInputs.cep = cepField
   return true 
 }
-// Fim validação CEP
+// Fim 
 
-// Capturação session storage
+
+//Pega nome
+function getName(){
+  return document.querySelector("#name")
+}
+// Fim
+
+// Pega e-mail
+
+function getEmail(){
+  return document.querySelector("#email")
+}
+// Fim
+
+function getCep(){
+  return document.querySelector("#cep")
+}
+// Envio session storage
+
+function sendSessionStorage(valorInputs){
+  
+  dadosRecuperados = {nome: valorInputs.nome, email:valorInputs.email, cep: valorInputs.cep}
+  dadosRecuperadosString = JSON.stringify(dadosRecuperados)
+  window.sessionStorage.setItem("Dados Recuperados",dadosRecuperadosString)
+  
+  
+}
+
 
 
 
