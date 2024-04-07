@@ -25,7 +25,7 @@ function main() {
         return window.location.href = loginPage
         }
         sendSessionStorage(valorInputs)
-        return window.location.href = "./pages/teste.html";
+        return window.location.href = "./pages/formQtnPessoas.html";
       });
       }
       

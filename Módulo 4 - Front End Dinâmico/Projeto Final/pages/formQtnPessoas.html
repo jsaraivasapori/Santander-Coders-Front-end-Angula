@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../qntPessoas.js" defer></script>
+    <title>Churrascômetro</title>
+  </head>
+  <body>
+    <h1>Churrascômettro</h1>
+    <main>
+      <div class="homens-container">
+        <label for="homens">Adultos</label>
+        <input type="range" min="0" max="12" required id="homens"> <span id="homens-qnt"></span>
+      </div>
+      <div class="mulheres-container">
+        <label for="mulheres">Mulheres</label>
+        <input type="range" min="0" max="12" required id="mulheres"> <span id="mulheres-qnt"></span>
+      </div>
+      <div class="criancas-container">
+        <label for="criancas">Crianças</label>
+        <input type="range" min="0" max="12" required id="criancas"> <span id="criancas-qnt"></span>
+      </div>
+      <button id="calcular">Calcular</button>
+    </main>
+  </body>
+</html>
