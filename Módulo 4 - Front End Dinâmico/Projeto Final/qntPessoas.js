@@ -11,9 +11,38 @@ function main(){
       return window.location.href = "#"
    }
    obj = retornaObjtChurras(qntHomens,qntMulheres,qntCriancas)
-   return renderizarTabela(obj)
+   console.log('Deu certo')
+   renderizarTabela(obj)
   })
 }
+
+//Função renderizarTabela
+
+function renderizarTabela(listaChurras) {
+  const main = document.querySelector("main")
+  const section = document.createElement("section")
+  const table= document.createElement("table")
+  table.innerHTML = 
+  '<table>' +
+     '<tr><th>Item</th><th>Quantidade para Adultos</th><th>Quantidade para Crianças</th><th>Quantidade Total</th></tr>' +
+     '<tr><td>Carne</td><td>' + listaChurras.carne.adulto.toFixed(0) + ' kg</td><td>' + listaChurras.carne.crianca.toFixed(0) + ' kg</td><td>-</td></tr>' +
+     '<tr><td>Pão de Alho</td><td>' + listaChurras.Pao.adulto.toFixed(0) + ' unidades</td><td>' + listaChurras.Pao.crianca.toFixed(0) + ' unidades</td><td>-</td></tr>' +
+     '<tr><td>Carvão</td><td>-</td><td>-</td><td>' + listaChurras.Carvao.carvao.toFixed(0) + ' kg</td></tr>' +
+     '<tr><td>Sal</td><td>-</td><td>-</td><td>' + listaChurras.Sal.sal.toFixed(0) + ' kg</td></tr>' +
+     '<tr><td>Refrigerante</td><td>-</td><td>-</td><td>' + listaChurras.Refrigerante.refrigerante.toFixed(0) + ' litros</td></tr>' +
+     '<tr><td>Água</td><td>-</td><td>-</td><td>' + listaChurras.Agua.agua.toFixed(0) + ' garrafas de 2 litros</td></tr>' +
+     '<tr><td>Cerveja</td><td>' + listaChurras.Cerveja.cerveja.toFixed(0) + ' garrafas de 600 ml</td><td>-</td><td>-</td></tr>' +
+ '</table>';
+
+  section.append(table)
+  main.append(section)
+}
+
+
+// Chame a função criarTabela com o objeto listaChurras
+
+
+
 
 // Funçoes captura inputs live
 function capturaInputs(){
@@ -21,19 +50,19 @@ function capturaInputs(){
   const spanM = document.querySelector("#mulheres-qnt")
   const spanC = document.querySelector("#criancas-qnt")
   document.querySelector("#homens").addEventListener("input", (ev)=>{
-    qntHomens = ev.target.value;
+    qntHomens = parseFloat(ev.target.value);
     spanH.innerText = `${qntHomens} homens`
   });
   document.querySelector("#mulheres").addEventListener("input", (ev)=>{
-    qntMulheres = ev.target.value;
+    qntMulheres = parseFloat(ev.target.value);
     spanM.innerText = `${qntMulheres} mulheres`
   });
   document.querySelector("#criancas").addEventListener("input", (ev)=>{
-    qntCriancas = ev.target.value;
+    qntCriancas = parseFloat(ev.target.value);
     spanC.innerText = `${qntCriancas} crianças`
   });
 }
-
+//Fim
 
 //FunçãoverificaCamos
 
@@ -41,7 +70,7 @@ function verificaCampos(homens,mulheres,criancas){
   if(homens == 0 && mulheres == 0 && criancas == 0){
     return false
   }
-  true
+  return true
 }
 
 //Função retorna objeto dos itens churrasco
@@ -68,7 +97,7 @@ function calcularCarne(adultos,crianca){
   return {adulto: 0.5*adultos, crianca: 0.3*crianca }
 }
 function calcularPaoAlho (adulto,crianca){
-  return{adulto: 5*adulto, crinaca: 2*crianca} //unidade: unidade
+  return{adulto: 3*adulto, crianca: 2*crianca} //unidade: unidade
 }
 
 function calcularCarvao(pessoas){
@@ -84,7 +113,7 @@ function calcularRefrigerante(crianca){
 }
 
 function calcularAgua(pessoas){
-  return {agua: pessoas} //unidade garrafa 2 litros
+  return {agua: 0.5*pessoas} //unidade garrafa 2 litros
 }
 
 function calcularCerveja(adultos){
