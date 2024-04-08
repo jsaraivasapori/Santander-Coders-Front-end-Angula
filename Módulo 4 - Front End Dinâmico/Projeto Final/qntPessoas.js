@@ -2,6 +2,7 @@ let qntHomens = 0;
 let qntMulheres = 0;
 let qntCriancas = 0;
 let acionado = false
+
 function main(){
   capturaInputs();
   const btnCalcular = document.querySelector("#calcular")
@@ -18,18 +19,7 @@ function main(){
    
   })
 }
-function displayHide(){
-  const divControle = document.querySelector("div.control")
-  const divResultado = document.querySelector("div.resultado")
-  if(divControle.classList.contains("hide") && !divResultado.classList.contains("hide")){
-    divControle.classList.remove("hide")
-    divResultado.classList.add("hide")
-    return
-  }
-  divControle.classList.add("hide")
-  divResultado.classList.remove("hide")
-  return
-}
+
 function renderizarBtnNovoCalculo(){
   const divCard = document.querySelector("div.card")
   const btnNovoCalculo = document.createElement("btn")
@@ -38,13 +28,28 @@ function renderizarBtnNovoCalculo(){
   btnNovoCalculo.innerText="Refazer"
   divCard.append(btnNovoCalculo)
 
-  divCard.addEventListener("click", displayHide())
+  btnNovoCalculo.addEventListener("click", displayHide)
+}
+
+
+
+function displayHide(){
+  const divControle = document.querySelector("div.control")
+  const divResultado = document.querySelector("div.resultado")
+  if(!divControle.classList.contains("hide") && divResultado.classList.contains("hide")){
+    divControle.classList.add("hide")
+    divResultado.classList.remove("hide")
+    return
+  }
+  divControle.classList.remove("hide")
+  divResultado.classList.add("hide")
+  return
 }
 //Função renderizarTabela
 
 function renderizarTabela(listaChurras) {
   const card = document.querySelector("div.card")
-  const div = document.createElement("div")
+  const divResultado = document.querySelector("div.resultado")
   const table= document.createElement("table")
   table.innerHTML = 
   '<table>' +
@@ -58,9 +63,9 @@ function renderizarTabela(listaChurras) {
      '<tr><td>Cerveja</td><td>' + listaChurras.Cerveja.cerveja.toFixed(0) + ' garrafas de 600 ml</td><td>-</td><td>' + listaChurras.Cerveja.cerveja.toFixed(0) + ' garrafas de 600 ml</td></tr>' +
  '</table>';
 
-  div.classList.add ("table-container")
-  div.append(table)
-  card.append(div)
+  divResultado.classList.add ("table-container")
+  divResultado.append(table)
+  card.append(divResultado)
   
 }
 
