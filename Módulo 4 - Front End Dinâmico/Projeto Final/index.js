@@ -7,12 +7,7 @@ function main() {
         ev.preventDefault()
         
         const loginPage = "./index.html"
-        
-
-
-
-
-        
+                
         if(!nameValdiation()){
           return window.location.href = loginPage
         }
@@ -37,9 +32,6 @@ function main() {
     
   }
   
-  
-
-
 //  Validação nome
 function nameValdiation(){
   const name = getName()
@@ -61,8 +53,6 @@ function nameValdiation(){
   return true 
 }
 // Fim validação nome
-
-
 
 
 // Validação email
@@ -133,12 +123,6 @@ function sendSessionStorage(valorInputs){
   dadosRecuperados = {nome: valorInputs.nome, email:valorInputs.email, cep: valorInputs.cep}
   dadosRecuperadosString = JSON.stringify(dadosRecuperados)
   window.sessionStorage.setItem("Dados Recuperados",dadosRecuperadosString)
-  
-  
 }
-
-
-
-
 
 main();

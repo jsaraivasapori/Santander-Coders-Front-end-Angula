@@ -51,15 +51,15 @@ function capturaInputs(){
   const spanC = document.querySelector("#criancas-qnt")
   document.querySelector("#homens").addEventListener("input", (ev)=>{
     qntHomens = parseFloat(ev.target.value);
-    spanH.innerText = `${qntHomens} homens`
+    spanH.innerText = `${qntHomens}`
   });
   document.querySelector("#mulheres").addEventListener("input", (ev)=>{
     qntMulheres = parseFloat(ev.target.value);
-    spanM.innerText = `${qntMulheres} mulheres`
+    spanM.innerText = `${qntMulheres} `
   });
   document.querySelector("#criancas").addEventListener("input", (ev)=>{
     qntCriancas = parseFloat(ev.target.value);
-    spanC.innerText = `${qntCriancas} crianças`
+    spanC.innerText = `${qntCriancas}`
   });
 }
 //Fim

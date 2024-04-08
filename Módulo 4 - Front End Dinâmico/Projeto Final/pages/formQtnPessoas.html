@@ -3,25 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/style.css">
     <script src="../qntPessoas.js" defer></script>
     <title>Churrascômetro</title>
   </head>
   <body>
-    <h1>Churrascômettro</h1>
     <main>
-      <div class="homens-container">
-        <label for="homens">Adultos</label>
-        <input type="range" min="0" max="12" required id="homens" value="0"> <span id="homens-qnt" ></span>
+      <div class="card column">
+        <h1>Churrascômetro</h1>
+        <div class="line-range">
+          <label for="homens">Homens </label>
+          <div class="column">
+            <input type="range" min="0" max="12" required id="homens" value="0"> <span id="homens-qnt" ></span>
+          </div>
+        </div>
+        <div class="line-range">
+          <label for="mulheres">Mulheres </label>
+          <div class="column">
+            <input type="range" min="0" max="12" required id="mulheres" value="0">  <span id="mulheres-qnt"></span>
+          </div>
+        </div>
+        <div class="line-range">
+          <label for="criancas" class="line label">Crianças </label>
+          <div class="column">
+            <input type="range" min="0" max="12" required id="criancas" value="0"> <span id="criancas-qnt"></span>
+          </div>
+        </div>
+        <button id="calcular" class="btn">Calcular</button>
       </div>
-      <div class="mulheres-container">
-        <label for="mulheres">Mulheres</label>
-        <input type="range" min="0" max="12" required id="mulheres" value="0"> <span id="mulheres-qnt"></span>
-      </div>
-      <div class="criancas-container">
-        <label for="criancas">Crianças</label>
-        <input type="range" min="0" max="12" required id="criancas" value="0"> <span id="criancas-qnt"></span>
-      </div>
-      <button id="calcular">Calcular</button>
+      
     </main>
   </body>
 </html>
