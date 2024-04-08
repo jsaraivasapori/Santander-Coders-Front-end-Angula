@@ -1,7 +1,7 @@
 let qntHomens = 0;
 let qntMulheres = 0;
 let qntCriancas = 0;
-
+let acionado = false
 function main(){
   capturaInputs();
   const btnCalcular = document.querySelector("#calcular")
@@ -12,34 +12,58 @@ function main(){
    }
    obj = retornaObjtChurras(qntHomens,qntMulheres,qntCriancas)
    console.log('Deu certo')
+   displayHide()
    renderizarTabela(obj)
+   renderizarBtnNovoCalculo()
+   
   })
 }
+function displayHide(){
+  const divControle = document.querySelector("div.control")
+  const divResultado = document.querySelector("div.resultado")
+  if(divControle.classList.contains("hide") && !divResultado.classList.contains("hide")){
+    divControle.classList.remove("hide")
+    divResultado.classList.add("hide")
+    return
+  }
+  divControle.classList.add("hide")
+  divResultado.classList.remove("hide")
+  return
+}
+function renderizarBtnNovoCalculo(){
+  const divCard = document.querySelector("div.card")
+  const btnNovoCalculo = document.createElement("btn")
+  btnNovoCalculo.classList.add("btn")
+  btnNovoCalculo.classList.add("btn-centralization")
+  btnNovoCalculo.innerText="Refazer"
+  divCard.append(btnNovoCalculo)
 
+  divCard.addEventListener("click", displayHide())
+}
 //Função renderizarTabela
 
 function renderizarTabela(listaChurras) {
-  const main = document.querySelector("main")
-  const section = document.createElement("section")
+  const card = document.querySelector("div.card")
+  const div = document.createElement("div")
   const table= document.createElement("table")
   table.innerHTML = 
   '<table>' +
      '<tr><th>Item</th><th>Quantidade para Adultos</th><th>Quantidade para Crianças</th><th>Quantidade Total</th></tr>' +
-     '<tr><td>Carne</td><td>' + listaChurras.carne.adulto.toFixed(0) + ' kg</td><td>' + listaChurras.carne.crianca.toFixed(0) + ' kg</td><td>-</td></tr>' +
-     '<tr><td>Pão de Alho</td><td>' + listaChurras.Pao.adulto.toFixed(0) + ' unidades</td><td>' + listaChurras.Pao.crianca.toFixed(0) + ' unidades</td><td>-</td></tr>' +
+     '<tr><td>Carne</td><td>' + listaChurras.carne.adulto.toFixed(0) + ' kg</td><td>' + listaChurras.carne.crianca.toFixed(0) + ' kg</td><td>' + (listaChurras.carne.adulto + listaChurras.carne.crianca).toFixed(0) + ' kg</td></tr>' +
+     '<tr><td>Pão de Alho</td><td>' + listaChurras.Pao.adulto.toFixed(0) + ' unidades</td><td>' + listaChurras.Pao.crianca.toFixed(0) + ' unidades</td><td>' + (listaChurras.Pao.adulto + listaChurras.Pao.crianca).toFixed(0) + ' unidades</td></tr>' +
      '<tr><td>Carvão</td><td>-</td><td>-</td><td>' + listaChurras.Carvao.carvao.toFixed(0) + ' kg</td></tr>' +
      '<tr><td>Sal</td><td>-</td><td>-</td><td>' + listaChurras.Sal.sal.toFixed(0) + ' kg</td></tr>' +
      '<tr><td>Refrigerante</td><td>-</td><td>-</td><td>' + listaChurras.Refrigerante.refrigerante.toFixed(0) + ' litros</td></tr>' +
      '<tr><td>Água</td><td>-</td><td>-</td><td>' + listaChurras.Agua.agua.toFixed(0) + ' garrafas de 2 litros</td></tr>' +
-     '<tr><td>Cerveja</td><td>' + listaChurras.Cerveja.cerveja.toFixed(0) + ' garrafas de 600 ml</td><td>-</td><td>-</td></tr>' +
+     '<tr><td>Cerveja</td><td>' + listaChurras.Cerveja.cerveja.toFixed(0) + ' garrafas de 600 ml</td><td>-</td><td>' + listaChurras.Cerveja.cerveja.toFixed(0) + ' garrafas de 600 ml</td></tr>' +
  '</table>';
 
-  section.append(table)
-  main.append(section)
+  div.classList.add ("table-container")
+  div.append(table)
+  card.append(div)
+  
 }
 
-
-// Chame a função criarTabela com o objeto listaChurras
 
 
 
