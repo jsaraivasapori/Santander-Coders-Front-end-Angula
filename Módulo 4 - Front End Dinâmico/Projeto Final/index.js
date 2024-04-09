@@ -126,4 +126,20 @@ function sendSessionStorage(valorInputs){
   window.sessionStorage.setItem("Dados Recuperados",dadosRecuperadosString)
 }
 
+async function obterEndereco(cep) {
+  try {
+      const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+      const data = await response.json();
+      document.getElementById('endereco').value = data.logradouro;
+      document.getElementById('bairro').value = data.bairro;
+      document.getElementById('cidade').value = data.localidade;
+      document.getElementById('estado').value = data.uf;
+  } catch (error) {
+      console.error(error);
+  }
+}
+
+
+
+
 main();
