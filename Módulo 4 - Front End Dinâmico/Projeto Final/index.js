@@ -1,5 +1,6 @@
 let valorInputs = {}
 function main() {
+  
     if(sessionStorage.getItem("Dados Recuperados") === null){
 
       const btn = document.querySelector("#btn-start");
@@ -28,7 +29,7 @@ function main() {
       getName().value = recoveryDatas.nome
       getEmail().value = recoveryDatas.email
       getCep().value = recoveryDatas.cep
-    
+      
     
   }
   

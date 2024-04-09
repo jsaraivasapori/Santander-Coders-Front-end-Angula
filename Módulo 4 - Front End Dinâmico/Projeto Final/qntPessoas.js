@@ -4,46 +4,45 @@ let qntCriancas = 0;
 let acionado = false
 
 function main(){
+  window.sessionStorage.clear()
   capturaInputs();
   const btnCalcular = document.querySelector("#calcular")
-  btnCalcular.addEventListener("click",()=>{
-    if(!verificaCampos(qntHomens,qntMulheres,qntCriancas)){
-      console.error("campos vazios")
-      return window.location.href = "#"
-   }
-   obj = retornaObjtChurras(qntHomens,qntMulheres,qntCriancas)
-   console.log('Deu certo')
-   displayHide()
-   renderizarTabela(obj)
-   renderizarBtnNovoCalculo()
-   
-  })
+  btnCalcular.addEventListener("click",render)
+  
+  
 }
 
-function renderizarBtnNovoCalculo(){
+
+
+function renderizarBtnSair(){
   const divCard = document.querySelector("div.card")
-  const btnNovoCalculo = document.createElement("btn")
-  btnNovoCalculo.classList.add("btn")
-  btnNovoCalculo.classList.add("btn-centralization")
-  btnNovoCalculo.innerText="Refazer"
-  divCard.append(btnNovoCalculo)
+  const btnSair = document.createElement("btn")
+  btnSair.classList.add("btn")
+  btnSair.classList.add("btn-centralization")
+  btnSair.innerText="Sair"
+  divCard.append(btnSair)
 
-  btnNovoCalculo.addEventListener("click", displayHide)
+  const btnCalcular = document.querySelector("#calcular")
+  btnCalcular.removeEventListener("click", render)
+  btnSair.addEventListener("click",()=>{
+    window.location.href = "../index.html"
+  })
+
+
+
+  
 }
 
-
-
-function displayHide(){
-  const divControle = document.querySelector("div.control")
-  const divResultado = document.querySelector("div.resultado")
-  if(!divControle.classList.contains("hide") && divResultado.classList.contains("hide")){
-    divControle.classList.add("hide")
-    divResultado.classList.remove("hide")
-    return
-  }
-  divControle.classList.remove("hide")
-  divResultado.classList.add("hide")
-  return
+function render(){
+  if(!verificaCampos(qntHomens,qntMulheres,qntCriancas)){
+    console.error("campos vazios")
+    return window.location.href = "#"
+ }
+ obj = retornaObjtChurras(qntHomens,qntMulheres,qntCriancas)
+ console.log('Deu certo')
+ 
+ renderizarTabela(obj)
+ renderizarBtnSair()
 }
 //Função renderizarTabela
 
