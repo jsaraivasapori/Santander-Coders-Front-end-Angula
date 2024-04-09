@@ -1,0 +1,65 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+h1{
+    
+    font-size: 4rem;
+  }
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    width: auto;
+    height: 100vh;
+}
+
+label{
+    font-size: 1.4rem;
+  }
+.card{
+  
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow:  20px 20px 60px #bebebe,
+                 -20px -20px 60px #ffffff;
+    padding: 2rem 4rem 2rem 4rem;
+    width: 50%;
+}
+
+.btn{
+    margin-top: 2em;
+    padding: 1em;
+    width: 200px;
+    border-radius: 40px;
+    border: none;
+    background-color: #0B090A;
+    color: #ffffff;
+    font-size: 1em;
+   }
+   
+   .btn:hover{
+     transform: scale(1.15);
+     background-color: #5f9ea0;
+     color: #282522
+   }
+
+.column{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox-confir{
+    margin-top: 2rem;
+
+}
+
+.input-text{
+    width: 100%;
+    margin: 5px 0 0 0;
+}

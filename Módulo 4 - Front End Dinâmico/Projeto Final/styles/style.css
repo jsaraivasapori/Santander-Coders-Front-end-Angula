@@ -3,6 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+h1{
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
  table{
   margin-top: 20px;
   background-color: #ffffff;
@@ -31,12 +36,7 @@ th, td {
  tr:nth-child(even){
   background-color: #cccccc;
  }
-h1{
-  padding-bottom: 5rem;
-  display: flex ;
-  justify-content: center;
-  align-items: center;
-}
+
 
 main{
   display: flex;
@@ -49,10 +49,7 @@ main{
   
   
 }
-label{
-  padding-bottom: 1em;
-  font-size: 1.5rem;
-}
+
 .column{
   display: flex;
   flex-direction: column;
@@ -74,7 +71,7 @@ label{
   background: #e0e0e0;
   box-shadow:  20px 20px 60px #bebebe,
                -20px -20px 60px #ffffff;
-  padding: 5em;
+  padding: 2rem 4rem 2rem 4rem;
   width: 50%;
 }
 .btn{
@@ -100,7 +97,7 @@ label{
   align-items: center;
 }
 
-
-.hide{
-  display:none;
+input{
+  width: 100%;
+  margin: 5px 0 0 0;
 }
