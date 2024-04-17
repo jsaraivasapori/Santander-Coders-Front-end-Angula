@@ -1,5 +1,7 @@
 let valorInputs = {}
+let cepValido = false
 function main() {
+  
     if(sessionStorage.getItem("Dados Recuperados") === null){
 
       const btn = document.querySelector("#btn-start");
@@ -9,28 +11,37 @@ function main() {
         const loginPage = "./index.html"
                 
         if(!nameValdiation()){
-          return window.location.href = loginPage
+          return 
         }
 
         if(!emailValidation()){
-        return window.location.href = loginPage
+        return 
         }
 
         if(!cepValidation()){
-        return window.location.href = loginPage
-        }
+        return 
+        }        
         sendSessionStorage(valorInputs)
-        return window.location.href = "./pages/formQtnPessoas.html";
-      });
-      }
+        const cep = getCep().value
+        obterEndereco(cep).then(() =>{
+          if(cepValido){
+           return window.location.href = "./pages/formQtnPessoas.html"
+          }
+          return
+        })
+        
+        
       
+      })
+    }
       const recoveryDatas = JSON.parse(window.sessionStorage.getItem("Dados Recuperados"))
       getName().value = recoveryDatas.nome
       getEmail().value = recoveryDatas.email
       getCep().value = recoveryDatas.cep
+      
     
-    
-  }
+}
+
   
 //  Validação nome
 function nameValdiation(){
@@ -82,7 +93,7 @@ function cepValidation(){
 
   const cep = getCep()
   const cepField = cep.value.trim()
-  const regex = /^[0-9]{5}-[0-9]{3}$/
+  const regex = /^\d{8}$/
 
   if(!cepField){
     alert("Campo CEP vazio")
@@ -124,5 +135,30 @@ function sendSessionStorage(valorInputs){
   dadosRecuperadosString = JSON.stringify(dadosRecuperados)
   window.sessionStorage.setItem("Dados Recuperados",dadosRecuperadosString)
 }
+
+async function obterEndereco(cep) {
+  try {
+    const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    if (data.erro) {
+      throw new Error('CEP inválido');
+    }
+    cepValido = true
+    console.log(data.logradouro) ;
+    console.log(data.bairro) ;
+    console.log(data.localidade) ;
+    console.log(data.uf);
+    console.log(cepValido);
+  } catch (error) {
+    console.error('Um erro ocorreu:', error);
+  }
+}
+
+
+
+
 
 main();
