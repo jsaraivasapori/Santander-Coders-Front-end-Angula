@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { AboutFeatures } from 'src/models/about-features.model';
+
 
 @Component({
   selector: 'app-about',
@@ -6,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent {
+  @Input() aboutData!: AboutFeatures
 
 }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ContactFeatures } from 'src/models/contact-features.model';
 
 @Component({
   selector: 'app-contact',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
+  @Input() contactData! : ContactFeatures
 
 }

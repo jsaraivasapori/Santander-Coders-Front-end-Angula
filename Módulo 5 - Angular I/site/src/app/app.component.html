@@ -49,9 +49,9 @@
 <main id="main">
   <!-- Componentes filhos de app-component -->
   <app-home *ngIf="currentPage === 'HOME'" [homeData]="sectionFeatures"></app-home>  
-  <app-about *ngIf="currentPage === 'ABOUT'"></app-about>
-  <app-address *ngIf="currentPage === 'ADDRESS'"></app-address>
-  <app-contact *ngIf="currentPage === 'CONTACT'"></app-contact>
+  <app-about *ngIf="currentPage === 'ABOUT'" [aboutData]="aboutFeatures"></app-about>
+  <app-address *ngIf="currentPage === 'ADDRESS'" [addressData]="addressFeatures"></app-address>
+  <app-contact *ngIf="currentPage === 'CONTACT'" [contactData]="contactFeatures"></app-contact>
 </main>
 <!-- End Main -->
 

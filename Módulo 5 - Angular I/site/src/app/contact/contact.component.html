@@ -1,10 +1,10 @@
  <!-- Contact -->
  <section id="contact" class="my-5">
   <div class="container">
-    <h1 class="text-center mb-4">Contato</h1>
+    <h1 class="text-center mb-4">{{contactData.title}}</h1>
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label"
-        >Email</label
+        >{{contactData.labelEmail}}</label
       >
       <input
         type="email"
@@ -15,7 +15,7 @@
     </div>
     <div class="mb-3">
       <label for="exampleFormControlTextarea1" class="form-label"
-        >Mensagem</label
+        >{{contactData.labelMensagem}}</label
       >
       <textarea
         class="form-control"
@@ -23,7 +23,7 @@
         rows="3"
       ></textarea>
     </div>
-    <button class="btn btn-primary">Enviar</button>
+    <button class="btn btn-primary">{{contactData.btnEnviar}}</button>
   </div>
 </section>
 <!-- End Contact -->

@@ -1,5 +1,5 @@
 export interface SectionFeatures{
-  title: string;
+  title: string
   feature1 : Feature
   feature2 : Feature
   feature3 : Feature
