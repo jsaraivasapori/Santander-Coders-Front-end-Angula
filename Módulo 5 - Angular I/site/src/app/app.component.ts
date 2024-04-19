@@ -6,5 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'site';
+  currentPage: 'HOME' | 'ABOUT' | 'CONTACT' | 'ADDRESS' = 'HOME'
+
+  goTOHome() : void{
+    this.currentPage = 'HOME'
+  }
+  goToAbout() : void{
+    this.currentPage = 'ABOUT'
+  }
+
+  goToAddress(){
+    this.currentPage = 'ADDRESS'
+  }
+  goToContact() : void{
+    this.currentPage = 'CONTACT'
+  }
+  
 }
