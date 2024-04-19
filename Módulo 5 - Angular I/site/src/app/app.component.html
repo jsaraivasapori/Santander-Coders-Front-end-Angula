@@ -1,5 +1,6 @@
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div id="container">
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-link">
   <div class="container-fluid">
     <a class="navbar-brand" href="./index.html">
       <img src="./../assets/images/logo_wt.png" alt="" />
@@ -18,16 +19,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" (click)="goTOHome()">Home</a>
+          <a class="nav-link active" aria-current="page" (click)="goTo(pages.HOME)">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" (click)="goToAbout()">Sobre nós</a>
+          <a class="nav-link" (click)="goTo(pages.ABOUT)">Sobre nós</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" (click)="goToAddress()">Endereço</a>
+          <a class="nav-link" (click)="goTo(pages.ADDRESS)">Endereço</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" (click)="goToContact()">Contato</a>
+          <a class="nav-link" (click)="goTo(pages.CONTACT)">Contato</a>
         </li>
       </ul>
       <form class="d-flex">
@@ -46,7 +47,8 @@
 
 <!-- Main -->
 <main id="main">
-  <app-home *ngIf="currentPage === 'HOME'"></app-home>  
+  <!-- Componentes filhos de app-component -->
+  <app-home *ngIf="currentPage === 'HOME'" [homeData]="sectionFeatures"></app-home>  
   <app-about *ngIf="currentPage === 'ABOUT'"></app-about>
   <app-address *ngIf="currentPage === 'ADDRESS'"></app-address>
   <app-contact *ngIf="currentPage === 'CONTACT'"></app-contact>
@@ -58,3 +60,6 @@
   <p>&copy;2022 Todos os direitos reservados.</p>
 </footer>
 <!-- End Footer -->
+
+</div>
+  
