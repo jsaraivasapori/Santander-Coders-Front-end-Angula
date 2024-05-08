@@ -1,27 +1,37 @@
 <div class="container">
   <div class="row">
-    <div class="col-3">
+    @for (product of products; track product.name) {  <div class="col-3">
       <mat-card class="example-card">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Shiba Inu</mat-card-title>
-          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+          <mat-card-title>Nome Produto</mat-card-title>
         </mat-card-header>
         <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
         <mat-card-content>
           <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            Description :The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
             A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
             bred for hunting.
           </p>
+          <p>
+            R$ 299.99
+          </p>
+          <p>
+            Quantidade: 15
+          </p>
         </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
+        <mat-card-actions class="d-flex justify-content-end">
+          <button mat-flat-button color="primary">Editar</button>
+          <button mat-stroked-button color="warn">Excluir</button>
         </mat-card-actions>
       </mat-card>
       
     </div>
+
+    } @empty {
+      <div class="col-12 text-center">Nenhum Produto Cadastrado</div>
+    }
+  
   </div>
 </div>
 
