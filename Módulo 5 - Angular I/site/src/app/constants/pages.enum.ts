@@ -1,6 +1,6 @@
-export enum Pages{
+export enum Pages {
   HOME = 'HOME',
   ADDRESS = 'ADDRESS',
   CONTACT = 'CONTACT',
-  ABOUT= 'ABOUT',
+  ABOUT = 'ABOUT',
 }
