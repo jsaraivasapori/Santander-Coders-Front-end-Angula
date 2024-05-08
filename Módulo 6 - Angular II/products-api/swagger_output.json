@@ -13,7 +13,10 @@
       "description": "User and Product endpoints"
     }
   ],
-  "schemes": ["http", "https"],
+  "schemes": [
+    "http",
+    "https"
+  ],
   "securityDefinitions": {
     "api_key": {
       "type": "apiKey",
@@ -21,20 +24,20 @@
       "in": "header"
     }
   },
-  "consumes": ["application/json"],
-  "produces": ["application/json"],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
   "paths": {
     "/products/": {
       "get": {
-        "tags": ["Products"],
-        "description": "Endpoint para obter a lista de produtos.",
-        "parameters": [
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string"
-          }
+        "tags": [
+          "Products"
         ],
+        "description": "Endpoint para obter a lista de produtos.",
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Lista de produtos encontrada.",
@@ -42,26 +45,17 @@
               "$ref": "#/definitions/Products"
             }
           },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "500": {
             "description": "Problemas com o servidor."
           }
         }
       },
       "post": {
-        "tags": ["Products"],
+        "tags": [
+          "Products"
+        ],
         "description": "Endpoint para cadastrar um produto.",
         "parameters": [
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string"
-          },
           {
             "name": "Product",
             "in": "body",
@@ -75,12 +69,6 @@
           "201": {
             "description": "Produto cadastrado."
           },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "500": {
             "description": "Problemas com o servidor."
           }
@@ -89,7 +77,9 @@
     },
     "/products/{id}": {
       "get": {
-        "tags": ["Products"],
+        "tags": [
+          "Products"
+        ],
         "description": "Endpoint para obter um produto.",
         "parameters": [
           {
@@ -98,11 +88,6 @@
             "required": true,
             "type": "string",
             "description": "Id do produto"
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string"
           }
         ],
         "responses": {
@@ -111,12 +96,6 @@
             "schema": {
               "$ref": "#/definitions/Product"
             }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           },
           "404": {
             "description": "Produto não encontrado."
@@ -127,7 +106,9 @@
         }
       },
       "put": {
-        "tags": ["Products"],
+        "tags": [
+          "Products"
+        ],
         "description": "Endpoint para atualizar um produto.",
         "parameters": [
           {
@@ -136,11 +117,6 @@
             "required": true,
             "type": "string",
             "description": "Id do produto"
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string"
           },
           {
             "name": "Product",
@@ -155,12 +131,6 @@
           "204": {
             "description": "Produto atualizado com sucesso."
           },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "404": {
             "description": "Produto não encontrado."
           },
@@ -170,7 +140,9 @@
         }
       },
       "delete": {
-        "tags": ["Products"],
+        "tags": [
+          "Products"
+        ],
         "description": "Endpoint para remover um produto.",
         "parameters": [
           {
@@ -179,22 +151,11 @@
             "required": true,
             "type": "string",
             "description": "Id do produto"
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string"
           }
         ],
         "responses": {
           "204": {
             "description": "Produto removido com sucesso."
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           },
           "404": {
             "description": "Produto não encontrado."
@@ -207,7 +168,9 @@
     },
     "/auth/login": {
       "post": {
-        "tags": ["Auth"],
+        "tags": [
+          "Auth"
+        ],
         "description": "Endpoint para login de usuários.",
         "parameters": [
           {
@@ -237,7 +200,9 @@
     },
     "/auth/register": {
       "post": {
-        "tags": ["Auth"],
+        "tags": [
+          "Auth"
+        ],
         "description": "Endpoint para cadastrar um usuário.",
         "parameters": [
           {
@@ -366,7 +331,10 @@
         },
         "tags": {
           "type": "array",
-          "example": ["tech", "phones"],
+          "example": [
+            "tech",
+            "phones"
+          ],
           "items": {
             "type": "string"
           }
@@ -398,7 +366,10 @@
         },
         "tags": {
           "type": "array",
-          "example": ["tech", "phones"],
+          "example": [
+            "tech",
+            "phones"
+          ],
           "items": {
             "type": "string"
           }
