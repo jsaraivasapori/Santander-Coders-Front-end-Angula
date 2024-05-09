@@ -14,11 +14,15 @@ export class ProductsService {
   constructor(private http:HttpClient) {}
 
     getProducts(): Observable<Product[]>{
-      // com pipe(frist()) chama uma vez a API e desescreve, ou seja, encerrra conexão
-    //http.get<Product[]> é a tipagem do que estou esperando vir do CRUCRUD
+      return this.http.get<Product[]>(this.apiUrl)
 
-    return this.http.get<Product[]>(this.apiUrl)
-    
+// com pipe(frist()) chama uma vez a API e desescreve, ou seja, encerrra conexão
+    //http.get<Product[]> é a tipagem do que estou esperando vir do CRUCRUD    
     }
    
+    saveProducts(productBody : Product): Observable<void[]>{
+//observable void pois ao cadstrar a api n retorna nada
+      return this.http.post<void[]>(this.apiUrl,productBody)
+    
+    }
 }

@@ -1,1 +1,50 @@
-<p>create works!</p>
+<h1 class="d-flex justify-content-center m-3">Cadastrar</h1>
+  <div class="container mt-3 ">
+    <form [formGroup] = "form" (ngSubmit)="onSave()">
+      <div class="row">
+        <mat-form-field appearance="outline" class="">
+          <mat-label>Nome</mat-label>
+          <input matInput formControlName="name">
+          <mat-error>Campo obrigatório</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Descrição</mat-label>
+          <input matInput formControlName="description">
+          <mat-error>Campo obrigatório</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Preço</mat-label>
+          <input matInput formControlName="price">
+          <mat-error>Campo obrigatório</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Quantidade</mat-label>
+          <input matInput formControlName="qty">
+          <mat-error>Campo obrigatório</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Imagem</mat-label>
+          <input matInput formControlName="image">
+          <mat-error>Campo obrigatório</mat-error>
+        </mat-form-field>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-12">
+            <button mat-flat-button color="primary" [disabled]="form.invalid">Salvar</button>
+          </div>
+        </div>
+      </form>
+  </div>

@@ -7,7 +7,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [RouterModule,MatCardModule,MatButtonModule],
+  imports: [RouterModule,MatCardModule,MatButtonModule,],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
   providers: []
