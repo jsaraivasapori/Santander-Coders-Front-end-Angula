@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { Subject, first, takeUntil } from 'rxjs';
 import { Product } from '../../models/product.model';
+import { ProductsService } from '../../service/products.service';
 
 @Component({
   selector: 'app-list',
@@ -16,7 +17,7 @@ export class ListComponent implements OnInit , OnDestroy{
   protected ngUnsubscribe = new Subject()
   products? : Product[] // Lista com elementos do tipo da interface Product 
   apiUrl = "http://localhost:3000/products"
-  constructor(private http: HttpClient){}
+  constructor(private productsService : ProductsService){}
 
 // Executando somente uma vez quando o componente e iniciado e pos receber todos os dados provenientes de inputs
   ngOnInit(): void {
@@ -24,17 +25,20 @@ export class ListComponent implements OnInit , OnDestroy{
   }
 
   getProducts(): void {
-
     // com pipe(frist()) chama uma vez a API e desescreve, ou seja, encerrra conexão
     //http.get<Product[]> é a tipagem do que estou esperando vir do CRUCRUD
 
-    this.http.get<Product[]>(this.apiUrl).pipe(takeUntil(this.ngUnsubscribe)).subscribe({
-      next:(response:Product[]) =>{
+    this.productsService.getProducts()
+    .pipe(first())
+    .subscribe({
+      next: (response: Product[]) =>{
         this.products = response
       },
-      error: (err) => {console.log(err);
+      error : (err) =>{
+        console.log(err);
+        
       }
-    }) 
+    })
     
   }
   // boa pratica implementar isso, pois destroi tudo ao mudar de pagina, desescreve dos observables e protege contra danos de perfomace na aplicação
