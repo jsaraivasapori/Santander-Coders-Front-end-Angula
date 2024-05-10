@@ -24,9 +24,14 @@ export const routes: Routes = [
                 component: ListComponent
             },
             {
-            path: 'create',
-            component: CreateComponent
+                path: 'create',
+                component: CreateComponent
             },
+            {
+//:id vai ler a rota e quando chamar a rota vai substituir :id pelo id passado na rota
+                path: 'edit/:id',
+                component: CreateComponent
+            }
         ]
     }
      

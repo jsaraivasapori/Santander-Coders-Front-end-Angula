@@ -7,7 +7,7 @@ import { MatButton, MatButtonModule } from '@angular/material/button';
 import { Product } from '../../models/product.model';
 import { ProductsService } from '../../service/products.service';
 import { first } from 'rxjs';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -19,11 +19,21 @@ import { Router } from '@angular/router';
 })
 export class CreateComponent implements OnInit{
   form! : FormGroup
+  id? : string
 
-  constructor(private productsService: ProductsService, private router:Router){}
+  constructor(
+    private productsService: ProductsService, 
+    private router:Router,
+    private route: ActivatedRoute
+  ){}
 
   ngOnInit(): void {
     this.buildForm()
+    this.id = this.route.snapshot.params['id']
+
+    if(this.id){
+      this.getProduct(this.id)
+    }
   }
 
   buildForm() : void{
@@ -36,14 +46,13 @@ export class CreateComponent implements OnInit{
     })
   }
 
-  onSave() : void{
-    const product :Product = this.form.getRawValue()
-    this.productsService.saveProducts(product)
+  getProduct(id : string) : void{
+    this.productsService.getProductById(id)
     .pipe(first())
     .subscribe({
-      complete: () =>{
-        //quando finalizar o put, levar o usuario até a rota de products para ver os componetes
-        this.router.navigate(['products'])
+      next: (product) =>{
+        this.form.patchValue(product);
+        
       },
       error:(err) => {
         console.log(err);
@@ -52,4 +61,52 @@ export class CreateComponent implements OnInit{
     })
     
   }
+
+  onSave() : void{
+    const product :Product = this.form.getRawValue()
+    
+
+    if(this.id){
+      this.updateProduct(product)
+      return
+    }
+
+    this.createProduct(product)
+    
+  }
+
+
+createProduct(product:Product): void{
+  this.productsService.saveProducts(product)
+  .pipe(first())
+  .subscribe({
+    complete: () =>{
+      //quando finalizar o put, levar o usuario até a rota de products para ver os componetes
+      this.router.navigate(['products'])
+    },
+    error:(err) => {
+      console.log(err);
+      
+    },
+  })
+
+}
+
+updateProduct(product:Product): void{
+  this.productsService.updateProduct(this.id!, product)
+  .pipe(first())
+  .subscribe({
+    complete: () =>{
+      //quando finalizar o put, levar o usuario até a rota de products para ver os componetes
+      this.router.navigate(['products'])
+    },
+    error:(err) => {
+      console.log(err);
+      
+    },
+  })
+
+}
+
+
 }

@@ -7,6 +7,7 @@ import { Product } from '../../models/product.model';
 import { ProductsService } from '../../service/products.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationModalComponent } from '../../../../commons/components/confirmation-modal/confirmation-modal.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -23,7 +24,11 @@ export class ListComponent implements OnInit , OnDestroy{
 
   apiUrl = "http://localhost:3000/products"
   
-  constructor(private productsService : ProductsService, public dialog: MatDialog){}
+  constructor(
+    private productsService : ProductsService, 
+    public dialog: MatDialog,
+    private router: Router
+  ){}
 
 // Executando somente uma vez quando o componente e iniciado e pos receber todos os dados provenientes de inputs
   ngOnInit(): void {
@@ -84,6 +89,9 @@ export class ListComponent implements OnInit , OnDestroy{
     })
   }
 
+  editProduct(id:string)  : void {
+    this.router.navigate(['products','edit', id ])
+  }
 
   // boa pratica implementar isso, pois destroi tudo ao mudar de pagina, desescreve dos observables e protege contra danos de perfomace na aplicação
   ngOnDestroy(): void {
