@@ -14,9 +14,13 @@ import { ProductsService } from '../../service/products.service';
   styleUrl: './list.component.scss'
 })
 export class ListComponent implements OnInit , OnDestroy{
+
   protected ngUnsubscribe = new Subject()
+
   products? : Product[] // Lista com elementos do tipo da interface Product 
+
   apiUrl = "http://localhost:3000/products"
+  
   constructor(private productsService : ProductsService){}
 
 // Executando somente uma vez quando o componente e iniciado e pos receber todos os dados provenientes de inputs
@@ -41,6 +45,21 @@ export class ListComponent implements OnInit , OnDestroy{
     })
     
   }
+
+  onDelete(id:string) : void {
+    this.productsService.deleteProduct(id)
+    .pipe(first())
+    .subscribe({
+      complete: () =>{
+        this.getProducts()
+      },
+      error: (err) =>{
+        console.log(err);
+        
+      }
+    })
+  }
+
   // boa pratica implementar isso, pois destroi tudo ao mudar de pagina, desescreve dos observables e protege contra danos de perfomace na aplicação
   ngOnDestroy(): void {
     this.ngUnsubscribe.next(true)
