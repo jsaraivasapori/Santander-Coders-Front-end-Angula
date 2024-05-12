@@ -1,6 +1,4 @@
----
-marp: true
----
+
 
 # Framework Front-End I - Angular
 
