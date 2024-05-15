@@ -3,6 +3,8 @@ import { ProductsComponent } from './modules/products/products.component';
 import { AuthComponent } from './modules/auth/auth.component';
 import { CreateComponent } from './modules/products/components/create/create.component';
 import { ListComponent } from './modules/products/components/list/list.component';
+import {LoginComponent} from './modules/auth/components/login/login.component'
+import { RegisterComponent } from './modules/auth/components/register/register.component';
 
 export const routes: Routes = [
     {
@@ -13,6 +15,17 @@ export const routes: Routes = [
     {
         path: 'auth',
         component: AuthComponent,
+        children: [
+            {
+                path: 'login',
+                component: LoginComponent
+            },
+
+            {
+                path: 'register',
+                component: RegisterComponent
+            }
+        ]
         
     },
     {
