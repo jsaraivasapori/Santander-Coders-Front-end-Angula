@@ -1,103 +1,101 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { Subject, first, takeUntil } from 'rxjs';
-import { Product } from '../../models/product.model';
-import { ProductsService } from '../../service/products.service';
 import { MatDialog } from '@angular/material/dialog';
+import { Router, RouterModule } from '@angular/router';
+import { Subject, first } from 'rxjs';
 import { ConfirmationModalComponent } from '../../../../commons/components/confirmation-modal/confirmation-modal.component';
-import { Router } from '@angular/router';
+import { Product } from '../../models/product.model';
+import { ProductsService } from '../../services/products.service';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [MatCardModule,MatButtonModule, HttpClientModule],
+  imports: [RouterModule, MatCardModule, MatButtonModule],
   templateUrl: './list.component.html',
-  styleUrl: './list.component.scss'
+  styleUrl: './list.component.scss',
 })
-export class ListComponent implements OnInit , OnDestroy{
+export class ListComponent implements OnInit, OnDestroy {
+  protected ngUnsubscribe = new Subject();
 
-  protected ngUnsubscribe = new Subject()
+  products?: Product[];
 
-  products? : Product[] // Lista com elementos do tipo da interface Product 
+  // observable = new Observable((observer) => {
+  //   let counter = 0;
+  //   setInterval(() => {
+  //     observer.next(++counter);
+  //   }, 1000);
+  // });
 
-  apiUrl = "http://localhost:3000/products"
-  
   constructor(
-    private productsService : ProductsService, 
+    private productsService: ProductsService,
     public dialog: MatDialog,
     private router: Router
-  ){}
+  ) {}
 
-// Executando somente uma vez quando o componente e iniciado e pos receber todos os dados provenientes de inputs
+  // Executado uma só vez, quando o componente é iniciado e após receber todos os dados provenientes de @Input()
   ngOnInit(): void {
-    this.getProducts()
+    this.getProducts();
+
+    // this.observable
+    //   .pipe(takeUntil(this.ngUnsubscribe))
+    //   .subscribe((response) => console.log(response));
   }
 
   getProducts(): void {
-    // com pipe(frist()) chama uma vez a API e desescreve, ou seja, encerrra conexão
-    //http.get<Product[]> é a tipagem do que estou esperando vir do CRUCRUD
-
-    this.productsService.getProducts()
-    .pipe(first())
-    .subscribe({
-      next: (response: Product[]) =>{
-        this.products = response
-      },
-      error : (err) =>{
-        console.log(err);
-        
-      }
-    })
-    
+    this.productsService
+      .getProducts()
+      .pipe(first())
+      .subscribe({
+        next: (response: Product[]) => {
+          this.products = response;
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
   }
 
-  onDelete(id:string) : void {
-    this.productsService.deleteProduct(id)
-    .pipe(first())
-    .subscribe({
-      complete: () =>{
-        this.getProducts()
-      },
-      error: (err) =>{
-        console.log(err);
-        
-      }
-    })
+  onDelete(id: string): void {
+    this.productsService
+      .deleteProduct(id)
+      .pipe(first())
+      .subscribe({
+        complete: () => {
+          this.getProducts();
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
   }
 
   openDialog(id: string): void {
-// modal salvo na variavel dialog    
-   const dialog = this.dialog.open(ConfirmationModalComponent, {
+    const dialog = this.dialog.open(ConfirmationModalComponent, {
       width: '250px',
       disableClose: true,
-      data:{
-        id
-      }
-      
+      data: {
+        id,
+      },
     });
-// afterclose retorna um observable. afterclose é metodo de  MathDialogRef
-    dialog.afterClosed()
-    .pipe(first())
-    .subscribe((response)=>{
-      if(response){
-        this.onDelete(id)
-      }
-      
-      
-    })
+
+    dialog
+      .afterClosed()
+      .pipe(first())
+      .subscribe((res) => {
+        if (res) {
+          this.onDelete(id);
+        }
+      });
   }
 
-  editProduct(id:string)  : void {
-    this.router.navigate(['products','edit', id ])
+  editProduct(id: string): void {
+    this.router.navigate(['products', 'edit', id]);
   }
 
-  // boa pratica implementar isso, pois destroi tudo ao mudar de pagina, desescreve dos observables e protege contra danos de perfomace na aplicação
+  // Executado quando o componente for destruído, ou seja, quando ele for removido da tela
   ngOnDestroy(): void {
-    this.ngUnsubscribe.next(true)
-    this.ngUnsubscribe.complete()
+    this.ngUnsubscribe.next(true);
+    this.ngUnsubscribe.complete();
   }
 }
-
-
