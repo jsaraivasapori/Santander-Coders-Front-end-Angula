@@ -5,6 +5,7 @@ import { RegisterComponent } from './modules/auth/components/register/register.c
 import { CreateComponent } from './modules/products/components/create/create.component';
 import { ListComponent } from './modules/products/components/list/list.component';
 import { ProductsComponent } from './modules/products/products.component';
+import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -29,6 +30,7 @@ export const routes: Routes = [
   {
     path: 'products',
     component: ProductsComponent,
+    canActivate: [authGuard],
     children: [
       {
         path: '',
@@ -37,6 +39,7 @@ export const routes: Routes = [
       {
         path: 'create',
         component: CreateComponent,
+        
       },
       {
         path: 'edit/:id',
